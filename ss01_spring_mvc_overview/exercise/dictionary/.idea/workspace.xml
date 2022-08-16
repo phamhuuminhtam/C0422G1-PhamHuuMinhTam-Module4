@@ -5,8 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f250f1b6-97dd-4fb8-add5-97dcc2848bf8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../customer-management" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionary.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/7.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/config/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/config/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/controller/DictionaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/repository/DictionaryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/repository/impl/DictionaryRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/service/DictionaryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/classes/java/main/com/dictionary/service/impl/DictionaryServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/libs/dictionary-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/config/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/config/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/controller/DictionaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/repository/DictionaryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/repository/impl/DictionaryRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/service/DictionaryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/java/com/dictionary/service/impl/DictionaryServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/webapp/WEB-INF/views/translate.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/dictionary/src/main/webapp/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +99,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/dictionary/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../currency_convert" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -164,6 +212,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660550133283</updated>
       <workItem from="1660550135567" duration="4113000" />
+      <workItem from="1660554524509" duration="1291000" />
     </task>
     <servers />
   </component>
@@ -180,6 +229,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
