@@ -5,106 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="502d567c-e9ef-4d8f-a952-0c05b53fd094" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/calculator/config/AppConfiguration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/calculator/config/AppInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/calculator/controller/CalculatorController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/libs/calculator-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/calculator/config/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/calculator/config/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/calculator/controller/CalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/calculator/service/CalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/calculator/service/impl/CalculatorServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/config/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/config/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/controller/SandWichCondimentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/model/Condiment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/repository/CondimentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/repository/impl/CondimentRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/service/CondimentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/java/com/sandwich_condiments/service/impl/CondimentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sandwich_condiments/src/main/webapp/WEB-INF/views/menu.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/customer-management/customer-management" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/java/com/codegym/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/configs/spring-config-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/classes/com/codegym/controller/HomeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/classes/com/codegym/controller/HomeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/configs/spring-config-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-context-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-core-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-jcl-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-web-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-5.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/views/success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/email-validate-maven/target/email-validate-maven-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/java/com/codegym/controller/TimeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/configs/spring-config-mvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/views/worldclock.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../practice/spring-timezone-maven/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss01_spring_mvc_overview/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss01_spring_mvc_overview/practice/customer-management" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practice/spring-email-validation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/spring-email-validation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/customer-management/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/customer-management/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +163,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660634707357</updated>
-      <workItem from="1660634709841" duration="5272000" />
+      <workItem from="1660634709841" duration="5614000" />
     </task>
     <servers />
   </component>
