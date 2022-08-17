@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dd79c17c-b957-472c-942a-e8091968e67c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../email/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/model/EmailForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/model/Language.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/model/PageSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/repository/LanguageRopository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/repository/PageSizeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/repository/impl/LanguageRopositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/repository/impl/PageSizeRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/service/LanguageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/service/PageSizeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/service/impl/LanguageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/java/com/email/service/impl/PageSizeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/webapp/WEB-INF/views/details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../email/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/controller/MedicalDeclarationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/model/MedicalDeclaration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/repository/MedicalDeclarationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/repository/impl/MedicalDeclarationRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/service/MedicalDeclarationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/java/com/medical_declaration/service/impl/MedicalDeclarationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.esm.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.esm.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.esm.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/javascript/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-grid.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../medical-declaration/src/main/webapp/resources/styles/bootstrap.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/java/com/codegym/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/java/com/codegym/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/java/com/codegym/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/java/com/codegym/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/views/employee/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-mvc-form-tutorial/src/main/webapp/WEB-INF/views/employee/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/repository/impl/UserRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/model/ProductForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/java/com/codegym/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/resources/upload_file.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practice/upload-file/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss01_spring_mvc_overview/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss01_spring_mvc_overview/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss02_spring_controller/practice/customer-management/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss02_spring_controller/practice/customer-management/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2DTjCbbCEpTBiUv5uSire3309yN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd79c17c-b957-472c-942a-e8091968e67c" name="Changes" comment="" />
+      <created>1660729844001</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660729844001</updated>
+      <workItem from="1660729847220" duration="473000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
