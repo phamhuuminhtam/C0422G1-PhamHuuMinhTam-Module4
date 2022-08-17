@@ -11,6 +11,11 @@
 <head>
   <title>Form</title>
   <link rel="stylesheet" href="/resources/styles/bootstrap.min.css">
+  <style>
+    label, p{
+      font-weight: bolder;
+    }
+  </style>
 
 </head>
 <body>
@@ -77,7 +82,7 @@
       <label>Trong vòng 14 ngày qua, Anh/Chị có đến tỉnh/thành phố nào? </label>
       <form:textarea path="note" type="text"/>
     </div>
-    <button type="submit">Cập nhật</button>
+    <button class="btn btn-success" type="submit">Cập nhật</button>
   </form:form>
 </div>
 

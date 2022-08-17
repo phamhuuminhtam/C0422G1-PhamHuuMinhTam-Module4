@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 @Repository
 public class MedicalDeclarationRepositoryImpl implements MedicalDeclarationRepository {
     private static List<String> yearList = new ArrayList<>();
@@ -19,17 +20,17 @@ public class MedicalDeclarationRepositoryImpl implements MedicalDeclarationRepos
 
 
     static {
-        for (int i=1900;i <=LocalDate.now().getYear();i++){
-            yearList.add(i+"");
+        for (int i = 1900; i <= LocalDate.now().getYear(); i++) {
+            yearList.add(i + "");
         }
-        for (int i=1;i <=31;i++){
-            if (i<10)
-            dayList.add("0"+i+"");
-            else dayList.add(i+"");
+        for (int i = 1; i <= 31; i++) {
+            if (i < 10)
+                dayList.add("0" + i + "");
+            else dayList.add(i + "");
         }
-        for (int i=1;i <=12;i++){
-            if (i<10) monthList.add("0"+i+"");
-            else monthList.add(i+"");
+        for (int i = 1; i <= 12; i++) {
+            if (i < 10) monthList.add("0" + i + "");
+            else monthList.add(i + "");
         }
 
         genderList.add("Nam");
@@ -80,44 +81,30 @@ public class MedicalDeclarationRepositoryImpl implements MedicalDeclarationRepos
     @Override
     public void saveForm(MedicalDeclaration medicalDeclaration) {
         int id = (int) Math.floor(Math.random() * 1000);
-        medicalDeclarationList.add(new MedicalDeclaration(id,medicalDeclaration.getName(),medicalDeclaration.getYearOfBirth(),
-                medicalDeclaration.getGender(),medicalDeclaration.getNation(),medicalDeclaration.getPersonalCode(),medicalDeclaration.getTransfer(),
-                medicalDeclaration.getVehicleCode(),medicalDeclaration.getSeatCode(),medicalDeclaration.getDayOfDateStart(),
-                medicalDeclaration.getMonthOfDateStart(),medicalDeclaration.getYearOfDateStart(),medicalDeclaration.getDayOfDateEnd(),
-                medicalDeclaration.getMonthOfDateEnd(),medicalDeclaration.getYearOfDateEnd(),medicalDeclaration.getNote()));
+        medicalDeclarationList.add(new MedicalDeclaration(id, medicalDeclaration.getName(), medicalDeclaration.getYearOfBirth(),
+                medicalDeclaration.getGender(), medicalDeclaration.getNation(), medicalDeclaration.getPersonalCode(), medicalDeclaration.getTransfer(),
+                medicalDeclaration.getVehicleCode(), medicalDeclaration.getSeatCode(), medicalDeclaration.getDayOfDateStart(),
+                medicalDeclaration.getMonthOfDateStart(), medicalDeclaration.getYearOfDateStart(), medicalDeclaration.getDayOfDateEnd(),
+                medicalDeclaration.getMonthOfDateEnd(), medicalDeclaration.getYearOfDateEnd(), medicalDeclaration.getNote()));
     }
 
-    public List<MedicalDeclaration> findAll(){
+    public List<MedicalDeclaration> findAll() {
         return medicalDeclarationList;
     }
 
     @Override
     public MedicalDeclaration searchById(int id) {
-        for (MedicalDeclaration m : medicalDeclarationList){
-            if(m.getId()==id)
+        for (MedicalDeclaration m : medicalDeclarationList) {
+            if (m.getId() == id)
                 return m;
         }
         return null;
     }
-//        this.name = name;
-//        this.yearOfBirth = yearOfBirth;
-//        this.gender = gender;
-//        this.nation = nation;
-//        this.personalCode = personalCode;
-//        this.transfer = transfer;
-//        this.vehicleCode = vehicleCode;
-//        this.seatCode = seatCode;
-//        this.dayOfDateStart = dayOfDateStart;
-//        this.monthOfDateStart = monthOfDateStart;
-//        this.yearOfDateStart = yearOfDateStart;
-//        this.dayOfDateEnd = dayOfDateEnd;
-//        this.monthOfDateEnd = monthOfDateEnd;
-//        this.yearOfDateEnd = yearOfDateEnd;
-//        this.note = note;
+
     @Override
     public void update(int id, MedicalDeclaration medicalDeclaration) {
-        for (MedicalDeclaration m : medicalDeclarationList){
-            if(m.getId()==id){
+        for (MedicalDeclaration m : medicalDeclarationList) {
+            if (m.getId() == id) {
                 m.setName(medicalDeclaration.getName());
                 m.setYearOfBirth(medicalDeclaration.getYearOfBirth());
                 m.setGender(medicalDeclaration.getGender());
@@ -137,6 +124,4 @@ public class MedicalDeclarationRepositoryImpl implements MedicalDeclarationRepos
 
         }
     }
-
-
 }
