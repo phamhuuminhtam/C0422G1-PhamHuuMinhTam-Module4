@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>Signature:</td>
-            <td><form:textarea path="signature"></form:textarea> <span>Enable spams filter</span></td>
+            <td><form:textarea path="signature"></form:textarea> </td>
         </tr>
         <tr>
             <td></td>

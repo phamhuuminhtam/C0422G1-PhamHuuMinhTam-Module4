@@ -3,6 +3,7 @@ package com.email.controller;
 import com.email.model.EmailForm;
 import com.email.model.Language;
 import com.email.model.PageSize;
+import com.email.service.EmailFormService;
 import com.email.service.LanguageService;
 import com.email.service.PageSizeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ import java.util.List;
 
 @Controller
 public class EmailController {
+
+    @Autowired
+    private EmailFormService emailFormService;
 
     @Autowired
     private LanguageService languageService;
@@ -35,6 +39,7 @@ public class EmailController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute EmailForm emailForm, Model model) {
+        emailFormService.saveMail(emailForm);
         model.addAttribute("emailForm", emailForm);
         return "details";
     }
