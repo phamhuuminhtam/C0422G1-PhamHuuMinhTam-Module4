@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String goList(Model model){
     model.addAttribute("productList",productService.findAll());
     return "list";
@@ -31,9 +32,10 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String createNewProduct(@ModelAttribute Product product){
+    public String createNewProduct(@ModelAttribute Product product, RedirectAttributes redirectAttributes){
         productService.add(product);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("msg","Add complete");
+        return "redirect:/home";
     }
 
     @GetMapping("/edit")
@@ -44,15 +46,17 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public  String updateProduct(@ModelAttribute Product product){
+    public  String updateProduct(@ModelAttribute Product product,RedirectAttributes redirectAttributes){
         productService.update(product);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("msg","update complete");
+        return "redirect:/home";
     }
 
     @GetMapping("/delete")
-    public String deleteProduct(@RequestParam int id){
+    public String deleteProduct(@RequestParam int id,RedirectAttributes redirectAttributes){
         productService.delete(id);
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("msg","delete complete");
+        return "redirect:/home";
     }
 
     @GetMapping("/search")
