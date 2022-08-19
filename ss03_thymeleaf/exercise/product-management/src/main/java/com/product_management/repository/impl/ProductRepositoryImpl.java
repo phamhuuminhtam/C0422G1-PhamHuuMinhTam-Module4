@@ -2,11 +2,12 @@ package com.product_management.repository.impl;
 
 import com.product_management.model.Product;
 import com.product_management.repository.ProductRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
@@ -24,8 +25,18 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public List<Product> findAll() {
-        return productList;
+    public List<Product> findAll(String name) {
+        List<Product> result = new ArrayList<>();
+        if (name == null)
+            return productList;
+        else {
+            for (Product p : productList) {
+                if (p.getName().toLowerCase().contains(name.toLowerCase())) {
+                    result.add(p);
+                }
+            }
+            return result;
+        }
     }
 
     @Override
@@ -37,10 +48,11 @@ public class ProductRepositoryImpl implements ProductRepository {
     public void update(Product product) {
         for (Product p : productList) {
             if (p.getId() == product.getId()) {
-                p.setName(product.getName());
-                p.setPrice(product.getPrice());
-                p.setDescription(product.getDescription());
-                p.setManufacture(product.getManufacture());
+//                p.setName(product.getName());
+//                p.setPrice(product.getPrice());
+//                p.setDescription(product.getDescription());
+//                p.setManufacture(product.getManufacture());
+                BeanUtils.copyProperties(product, p);
             }
         }
     }
@@ -59,30 +71,30 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public void delete(int id) {
         for (int i = 0; i < productList.size(); i++) {
-            if (productList.get(i).getId()==id){
+            if (productList.get(i).getId() == id) {
                 productList.remove(productList.get(i));
             }
         }
     }
 
-    @Override
-    public List<Product> searchByName(String name) {
-        List<Product> result = new ArrayList<>();
-        for (Product p : productList){
-            if(p.getName().toLowerCase().contains(name.toLowerCase())){
-                result.add(p);
-            }
-        }
-        return result;
-    }
+//    @Override
+//    public List<Product> searchByName(String name) {
+//        List<Product> result = new ArrayList<>();
+//        for (Product p : productList){
+//            if(p.getName().toLowerCase().contains(name.toLowerCase())){
+//                result.add(p);
+//            }
+//        }
+//        return result;
+//    }
 
     @Override
     public Product showDetail(int id) {
-        for (Product p : productList){
-            if(p.getId()==id)
+        for (Product p : productList) {
+            if (p.getId() == id)
                 return p;
         }
-        return null ;
+        return null;
     }
 
 
