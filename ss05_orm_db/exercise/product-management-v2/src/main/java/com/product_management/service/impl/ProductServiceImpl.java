@@ -20,7 +20,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void add(Product product) {
-             productRepository.add(product);
+        productRepository.add(product);
     }
 
     @Override
@@ -37,6 +37,5 @@ public class ProductServiceImpl implements ProductService {
     public void delete(int id) {
         productRepository.delete(id);
     }
-
 
 }
