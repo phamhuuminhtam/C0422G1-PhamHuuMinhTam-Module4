@@ -43,7 +43,7 @@ public class BlogController {
     @GetMapping("/delete")
     public String delete(@RequestParam Integer id,RedirectAttributes redirectAttributes){
         blogService.remove(id);
-        redirectAttributes.addFlashAttribute("msg", "update complete");
+        redirectAttributes.addFlashAttribute("msg", "delete complete");
         return "redirect:/goList";
     }
 
@@ -56,7 +56,7 @@ public class BlogController {
     @PostMapping("/create")
     public String createBlog(@ModelAttribute Blog blog,RedirectAttributes redirectAttributes){
        blogService.save(blog);
-        redirectAttributes.addFlashAttribute("msg", "update complete");
+        redirectAttributes.addFlashAttribute("msg", "create complete");
         return "redirect:/goList";
     }
 }
