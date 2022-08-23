@@ -11,19 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 
 @Controller
 public class ProductController {
 
     @Autowired
     private ProductService productService;
-
-//    @GetMapping("/home")
-//    public String goList(Model model) {
-//        model.addAttribute("productList", productService.findAll());
-//        return "list";
-//    }
 
     @GetMapping("/create")
     public String goCreate(Model model) {

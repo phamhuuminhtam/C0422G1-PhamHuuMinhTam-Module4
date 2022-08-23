@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<a href="/create">Create new Blog</a>
+<table class="table table-hover container">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="bloglist,loop : ${blogList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${bloglist.id}"></td>
+        <td th:text="${bloglist.title}"></td>
+        <td>
+            <a class="btn btn-success" th:href="@{/detail(id=${bloglist.id})}">Detail</a>
+            <a class="btn btn-success" th:href="@{/edit(id=${bloglist.id})}">Edit</a>
+            <a class="btn btn-danger"
+               th:href="@{/delete(id=${bloglist.id})}"
+               th:attr="onclick=|showModal('${bloglist.id}','${bloglist.title}')|"
+               data-bs-toggle="modal"
+               data-bs-target="#exampleModal" >Delete</a>
+
+        </td>
+    </tr>
+</table>
+
+<!-- Modal -->
+<form action="/delete">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete confirm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input hidden type="text" id="infoModal" name="id">
+                    <span type="text" id="infoModalName"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="modal fade" id="winload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="1">Notification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span id="msgbox"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input hidden th:value="${msg}" type="text" id="msg">
+
+<script src="/resources/javascript/jquery-3.5.1.min.js"></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script>
+    function showModal(a, b) {
+        alert(a);
+        document.getElementById("infoModal").value = a;
+
+        document.getElementById("infoModalName").innerText = "Confirm delete id=" + a + " and title name = "+b +" ?" ;
+    }
+
+    window.onload = function () {
+        var str = document.getElementById("msg").value
+        if (str != null && str != "") {
+            document.getElementById("msgbox").innerText = str;
+            $(document).ready(function () {
+                $('#winload').modal("show");
+            })
+
+            function closeModal(){
+                // document.getElementById("closeModal").click()
+                $('#winload').modal('hide')
+            }
+            setTimeout(closeModal,1300)
+        }
+    }
+</script>
+</body>
+</html>

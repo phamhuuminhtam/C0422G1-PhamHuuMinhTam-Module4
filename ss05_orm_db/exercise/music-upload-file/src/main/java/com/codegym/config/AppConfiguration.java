@@ -74,5 +74,4 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         resolver.setMaxUploadSizePerFile(52428800);
         return resolver;
     }
-
 }
