@@ -8,23 +8,20 @@ import org.springframework.data.domain.Pageable;
 
 public interface BlogService {
 
-    public Iterable<Blog> findAll();
+    Iterable<Blog> findAll();
 
+    Blog findById(Integer id);
 
-    public Blog findById(Integer id);
+    void save(Blog blog);
 
+    void update(Blog blog);
 
-    public void save(Blog blog);
-
-
-    public void update(Blog blog);
-
-
-    public void remove(Integer id);
+    void remove(Integer id);
 
     Page<Blog> findAllPage(Pageable pageable);
 
     Page<Blog> findAllByTitleContaining(String title, Pageable pageable);
-    Page<Blog> findAllByTitleContainingAndCategory_Id(String title,Integer id, Pageable pageable);
+
+    Page<Blog> findAllByTitleContainingAndCategory_Id(String title, Integer id, Pageable pageable);
 
 }
