@@ -15,7 +15,6 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-
     @Override
     public Page<Product> findAllByName(String name, Pageable pageable) {
         return productRepository.findAllByNameContaining(name,pageable);
