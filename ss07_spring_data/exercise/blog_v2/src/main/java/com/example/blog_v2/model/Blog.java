@@ -14,6 +14,10 @@ public class Blog {
     public Blog() {
     }
 
+    public Blog(Category category) {
+        this.category = category;
+    }
+
     @ManyToOne()
     private Category category;
 
