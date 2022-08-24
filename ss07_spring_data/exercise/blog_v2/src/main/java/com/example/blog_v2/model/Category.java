@@ -11,7 +11,6 @@ public class Category {
     private Integer id;
     private String name;
 
-
     @OneToMany(mappedBy = "category")
     private List<Blog> blogList;
 

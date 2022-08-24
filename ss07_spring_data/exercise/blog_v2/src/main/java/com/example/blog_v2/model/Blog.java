@@ -25,8 +25,6 @@ public class Blog {
         return category;
     }
 
-
-
     public Blog(Integer id, String title, String content, Category category) {
         this.id = id;
         this.title = title;

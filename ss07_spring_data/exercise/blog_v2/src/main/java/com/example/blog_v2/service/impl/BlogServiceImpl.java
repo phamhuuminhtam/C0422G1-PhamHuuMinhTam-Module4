@@ -16,11 +16,6 @@ public class BlogServiceImpl implements BlogService {
     private BlogRepository blogRepository;
 
     @Override
-    public Iterable<Blog> findAll() {
-        return blogRepository.findAll();
-    }
-
-    @Override
     public Blog findById(Integer id) {
         return blogRepository.findById(id).orElse(null);
     }

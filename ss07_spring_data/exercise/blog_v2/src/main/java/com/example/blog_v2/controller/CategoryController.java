@@ -33,7 +33,6 @@ public class CategoryController {
         return "redirect:";
     }
 
-
     @GetMapping("/edit")
     public String showEdit(@RequestParam Integer id, Model model) {
         model.addAttribute("category", categoryService.findById(id));
