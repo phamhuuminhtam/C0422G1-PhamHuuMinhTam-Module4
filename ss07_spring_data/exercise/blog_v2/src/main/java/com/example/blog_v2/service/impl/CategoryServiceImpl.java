@@ -12,12 +12,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-
     @Override
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
-
 
     public void create(Category category){
         categoryRepository.save(category);
