@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.jws.WebParam;
 import javax.validation.Valid;
 
 @Controller
@@ -53,7 +51,7 @@ public class MusicController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("musicDto") @Valid MusicDto musicDto, BindingResult bindingResult, Model model) {
+    public String edit(@ModelAttribute("musicDto") @Valid MusicDto musicDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit";
         }

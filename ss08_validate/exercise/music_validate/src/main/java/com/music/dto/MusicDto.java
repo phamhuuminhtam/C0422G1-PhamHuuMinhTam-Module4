@@ -14,7 +14,7 @@ public class MusicDto {
 
     @NotBlank(message = "Please Input!")
     @Pattern(regexp = "^[a-zỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ0-9A-ZĐỲỌÁẦẢẤỜỄÀẠẰỆẾÝỘẬỐŨỨĨÕÚỮỊỖÌỀỂẨỚẶÒÙỒỢÃỤỦÍỸẮẪỰỈỎỪỶỞÓÉỬỴẲẸÈẼỔẴẺỠƠÔƯĂÊÂ ]+$",message = "Wrong format")
-    @Size(max = 300,message = "max size 800 words")
+    @Size(max = 300,message = "max size 300 words")
     private String singer;
 
     @NotBlank(message = "Please Input!")
