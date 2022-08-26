@@ -19,10 +19,49 @@
             <td><span th:text="${book.name}"></span></td>
             <td><span th:text="${book.author}"></span></td>
             <td><span th:text="${book.category}"></span><br></td>
-            <td><a class="btn btn-success" th:href="@{/borrow(name=${book.name})}">borrow</a>
+            <td><a class="btn btn-success" data-bs-toggle="modal"
+                   data-bs-target="#exampleModal" th:attr="onclick=|showModal('${book.name}','${book.author}')|">borrow</a>
                 <a class="btn btn-success" href="/">Back home</a></td>
         </tr>
     </table>
+
+<!--    th:href="@{/borrow(name=${book.name})}"-->
+
+    <form action="/borrow">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Borrow confirm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input hidden type="text" id="infoModal" name="name">
+                        <span type="text" id="infoModalName"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Borrow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="/static/js/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+            crossorigin="anonymous"></script>
+
+    <script>
+        function showModal(a, b) {
+            document.getElementById("infoModal").value = a;
+            document.getElementById("infoModalName").innerText = "Confirm borrow book has name=" + a + " and author = "+b +" ?" ;
+        }
+    </script>
 
 </div>
 </body>

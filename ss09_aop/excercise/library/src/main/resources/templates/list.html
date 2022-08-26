@@ -10,7 +10,7 @@
 <form action="/returnBook" class="container">
     <div class="row">
 
-            <label class="form-label">InPut Borrow Code</label>
+            <label class="form-label fw-bold">Enter Borrow Code</label>
             <input class="form-control" type="number" name=idBorrow>
             <button class="btn btn-success mb-5" type="submit">Return Book</button>
 
@@ -32,6 +32,57 @@
         <td><a class="btn btn-warning" th:href="@{/detail(name=${list.name})}">View</a></td>
     </tr>
 </table>
-<span th:if="${idBook!=null}">Bạn đã thuê sách có id: </span><span th:text="${idBook}"></span>
+<!--<span th:if="${idBook!=null}">Bạn đã thuê sách có id: </span><span th:text="${idBook}"></span>-->
+
+<div class="modal fade" id="winload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="1">Notification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <span>Bạn vừa thuê sách có mã thuê là: </span> <span id="msgbox"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input hidden th:value="${idBook}" type="text" id="msg">
+
+<script src="/resources/javascript/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+<script>
+    function showModal(a, b) {
+        document.getElementById("infoModal").value = a;
+        document.getElementById("infoModalName").innerText = "Confirm delete id=" + a + " and product name = "+b +" ?" ;
+    }
+
+    window.onload = function () {
+        var str = document.getElementById("msg").value
+        if (str != null && str != "") {
+            document.getElementById("msgbox").innerText = str;
+            $(document).ready(function () {
+                $('#winload').modal("show");
+            })
+
+            function closeModal(){
+                // document.getElementById("closeModal").click()
+                $('#winload').modal('hide')
+            }
+            setTimeout(closeModal,2000)
+        }
+    }
+</script>
 </body>
 </html>
