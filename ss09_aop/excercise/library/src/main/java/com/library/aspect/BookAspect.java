@@ -11,7 +11,7 @@ import java.util.Arrays;
 @Aspect
 @Component
 public class BookAspect {
-    public static int count = 0;
+    private static int count = 0;
 
     @AfterReturning("execution(* com.library.controller.BookController.borrow(..))")
     public void logInfoBorrow(JoinPoint joinPoint) {

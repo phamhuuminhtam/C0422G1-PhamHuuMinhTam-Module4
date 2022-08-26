@@ -50,7 +50,7 @@ public class BookController {
 
     @GetMapping("/returnBook")
     public String returnBook(@RequestParam Integer idBorrow, Model model) throws Exception {
-        if (bookService.returnBookCheckId(idBorrow)==null){
+        if (bookService.returnBookCheckId(idBorrow) == null) {
             throw new Exception();
         }
         bookService.returnBook(idBorrow);

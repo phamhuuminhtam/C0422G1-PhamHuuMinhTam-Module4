@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -20,6 +21,5 @@ public class Book {
     private String author;
     private String category;
     private int status;
-
 
 }
