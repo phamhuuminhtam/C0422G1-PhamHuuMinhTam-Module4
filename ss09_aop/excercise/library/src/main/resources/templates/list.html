@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<h1 class="d-flex justify-content-center">Books Management</h1>
+<form action="/returnBook" class="container">
+    <div class="row">
+
+            <label class="form-label">InPut Borrow Code</label>
+            <input class="form-control" type="number" name=idBorrow>
+            <button class="btn btn-success mb-5" type="submit">Return Book</button>
+
+    </div>
+</form>
+<table class="table table-hover container">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Detail</th>
+    </tr>
+    <tr th:each="list,loop: ${list}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.author}"></td>
+        <td th:text="${list.category}"></td>
+        <td><a class="btn btn-warning" th:href="@{/detail(name=${list.name})}">View</a></td>
+    </tr>
+</table>
+<span th:if="${idBook!=null}">Bạn đã thuê sách có id: </span><span th:text="${idBook}"></span>
+</body>
+</html>

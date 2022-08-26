@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<h1 class="text-center">BOOK INFO</h1>
+<div class="justify-content-center">
+    <table class="table table-hover container">
+        <tr>
+            <th>Name: </th>
+            <th>Author:</th>
+            <th>Category:</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><span th:text="${book.name}"></span></td>
+            <td><span th:text="${book.author}"></span></td>
+            <td><span th:text="${book.category}"></span><br></td>
+            <td><a class="btn btn-success" th:href="@{/borrow(name=${book.name})}">borrow</a>
+                <a class="btn btn-success" href="/">Back home</a></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
