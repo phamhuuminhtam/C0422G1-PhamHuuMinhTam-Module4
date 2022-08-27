@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <th:block th:replace="~{/layout::cssbackground}"></th:block>
+</head>
+<body>
+<div th:replace="~{/layout::header}"></div>
+<nav th:replace="~{/layout::navbar}"></nav>
+
+<div class="container-fluid">
+
+    <input value="${message}" id="message" hidden>
+    <h2 CLASS="text-center">DANH SÁCH DỊCH VỤ</h2>
+    <div class="row main mt-2 ">
+        <table class="table table-striped" id="tableCustomer">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên dịch vụ</th>
+                <th>Diện tích sử dụng</th>
+                <th>Chi phí thuê</th>
+                <th>Số lượng người tối đa</th>
+                <th>Kiểu thuê</th>
+                <th>Tên loại dịch vụ</th>
+                <th>Tiêu chuẩn phòng</th>
+                <th>Tiện nghi</th>
+                <th>Diện tích hồ bơi</th>
+                <th>Số tầng</th>
+                <th>Dịch vụ miễn phí</th>
+                <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="facility, loop:${facilityList}">
+                <td th:text="${loop.count}"></td>
+                <td th:text="${facility.serviceName}"></td>
+                <td th:text="${facility.squareUse}"></td>
+                <td th:text="${facility.cost}"></td>
+                <td th:text="${facility.numberOfPeople}"></td>
+                <td th:text="${facility.rentalType.rentalTypeName}"></td>
+                <td th:text="${facility.serviceType.serviceTypeName}"></td>
+                <td th:text="${facility.roomStandard}"></td>
+                <td th:text="${facility.descriptionOtherConvenience}"></td>
+                <td th:text="${facility.poolArea}"></td>
+                <td th:text="${facility.numberOfFloors}"></td>
+                <td th:text="${facility.freeServiceAdd}"></td>
+
+                <td>
+                    <a type="button" class="btn btn-primary"
+                       th:href="@{/facility/edit(id=${facility.idFacility})}">
+                        Sửa
+                    </a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                           th:attr="onclick=|showModalDelete('${facility.idFacility}','${facility.serviceName}')|">
+                        Xóa
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div class="row footer ">
+    <div class="col-lg-12 bg-success d-flex justify-content-center" style="height: 100px">
+        <p class="mt-2 text-white"> © 2018 Furama Resort Danang.</p>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/facility/delete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container-fluid">
+                    Bạn xác nhận muốn xóa dịch vụ: <span id="delete_modal"></span>
+                    <input type="hidden" id="sendId" name="id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showModalDelete(a, b) {
+        document.getElementById("delete_modal").innerText = b;
+        document.getElementById("sendId").value = a;
+
+    }
+</script>
+
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+
+    window.onload = function () {
+        if (document.getElementById("message").value != "")
+            alert(document.getElementById("message").value)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <th:block th:replace="~{/layout::cssbackground}"></th:block>
+</head>
+<body>
+<div th:replace="~{/layout::header}"></div>
+<nav th:replace="~{/layout::navbar}"></nav>
+
+<div class="container-fluid">
+    <input value="${message}" id="message" hidden>
+    <h2 CLASS="text-center">DANH SÁCH KHÁCH HÀNG</h2>
+    <div class="row main mt-2 ">
+        <table class="table table-striped" id="tableCustomer">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Số CMND</th>
+                <th>Số Điện Thoại</th>
+                <th>Email</th>
+                <th>Loại khách</th>
+                <th>Địa chỉ</th>
+                <th>Hành động</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="customer,status : ${customerList}">
+                <td th:text="${status.count}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.dayOfBirth}"></td>
+                <td th:text="${customer.gender}"></td>
+                <td th:text="${customer.personalCode}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.getGuestType().getGuestTypeName()}"></td>
+                <td th:text="${customer.address}"></td>
+                <td>
+                    <a type="button" class="btn btn-primary"
+                       th:href="@{/customer/edit(id=${customer.idCustomer})}">
+                        Sửa
+                    </a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                           th:attr="onclick=|showModalDelete('${customer.idCustomer}','${customer.name}')|">
+                        Xóa
+                    </button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div th:replace="~{/home::footer}"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/customer/delete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container-fluid">
+                    Bạn xác nhận muốn xóa khách hàng: <span id="delete_modal"></span>
+                    <input type="hidden" id="sendId" name="id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Xóa</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/customer?action=deleteCustomer" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body container-fluid">
+                    <p id="modalAlertMes"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showModalDelete(a, b) {
+        document.getElementById("delete_modal").innerText = b;
+        document.getElementById("sendId").value = a;
+
+    }
+</script>
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script>
+
+    window.onload = function () {
+        var message = document.getElementById("message").value;
+        document.getElementById("modalAlertMes").innerText = message;
+        if (message != "" && message != null) {
+            $(document).ready(function () {
+                    $('#modalAlert').modal("show")
+                }
+            )
+        }
+    }
+</script>
+</body>
+</html>
