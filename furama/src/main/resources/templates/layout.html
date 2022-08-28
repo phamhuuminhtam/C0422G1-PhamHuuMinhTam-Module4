@@ -82,8 +82,8 @@
 
                 </ul>
 
-                <form class="d-flex align-content-center mb-0">
-                    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex align-content-center mb-0" th:action="@{${mapCus}}" method="get" name="myForm">
+                    <input class="form-control " type="search" placeholder="Search" aria-label="Search" name="keyWord">
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>

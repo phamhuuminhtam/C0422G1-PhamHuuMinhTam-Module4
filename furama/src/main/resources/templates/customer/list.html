@@ -7,10 +7,11 @@
 </head>
 <body>
 <div th:replace="~{/layout::header}"></div>
-<nav th:replace="~{/layout::navbar}"></nav>
+<nav th:replace="~{/layout::navbar(mapCus='/customer/')}"></nav>
 
 <div class="container-fluid">
-    <input value="${message}" id="message" hidden>
+<!--    <input value="${message}" id="message" hidden>-->
+    <input  id="message" hidden>
     <h2 CLASS="text-center">DANH SÁCH KHÁCH HÀNG</h2>
     <div class="row main mt-2 ">
         <table class="table table-striped" id="tableCustomer">
@@ -31,7 +32,7 @@
 
             <tbody>
             <tr th:each="customer,status : ${customerList}">
-                <td th:text="${status.count}"></td>
+                <td th:text="${status.count + customerList.number * size }"></td>
                 <td th:text="${customer.name}"></td>
                 <td th:text="${customer.dayOfBirth}"></td>
                 <td th:text="${customer.gender}"></td>
@@ -51,14 +52,14 @@
                     </button>
                 </td>
             </tr>
-
             </tbody>
         </table>
-
     </div>
 
 </div>
-
+<a class="btn btn-primary" th:href="@{/customer/(page=${customerList.number - 1},keyWord=${keyWord})}" th:if="${customerList.hasPrevious()}"> Previous</a>
+<span th:text="${customerList.number +1}"></span>/<span th:text="${customerList.totalPages}"></span>
+<a class="btn btn-primary"  th:href="@{/customer/(page=${customerList.number + 1},keyWord=${keyWord})}" th:if="${customerList.hasNext()}"> Next</a>
 <div th:replace="~{/home::footer}"></div>
 
 <!-- Modal -->
@@ -130,6 +131,8 @@
             )
         }
     }
+
+
 </script>
 </body>
 </html>

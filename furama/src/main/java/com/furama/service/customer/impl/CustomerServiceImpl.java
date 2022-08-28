@@ -4,9 +4,10 @@ import com.furama.model.customer.Customer;
 import com.furama.repository.CustomerRepository;
 import com.furama.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -16,8 +17,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public List<Customer> findAll() {
-        return customerRepository.findAll();
+    public Page<Customer> findAll(String keyWord, Pageable pageable) {
+        return customerRepository.findAllByNameContainingOrPersonalCodeContainingOrPhoneNumberContainingOrEmailContaining(keyWord,keyWord,keyWord,keyWord, pageable);
     }
 
     @Override
