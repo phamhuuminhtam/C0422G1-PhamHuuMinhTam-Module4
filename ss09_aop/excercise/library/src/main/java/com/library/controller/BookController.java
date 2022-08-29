@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
+
 
 @Controller
 public class BookController {
@@ -53,7 +55,8 @@ public class BookController {
         if (bookService.returnBookCheckId(idBorrow) == null) {
             throw new Exception();
         }
-        bookService.returnBook(idBorrow);
+
+            bookService.returnBook(idBorrow);
         model.addAttribute("list", bookService.findAll());
         return "list";
     }

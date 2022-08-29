@@ -20,7 +20,7 @@
                         th:value="${service.idServiceType}"></option>
             </select>
         </div>
-
+        <input  hidden type="text" th:field="*{idFacility}">
         <div class="col-md-12">
             <label for="name" class="form-label">Tên dịch vụ</label>
             <input type="text" class="form-control" id="name" name="name"  th:field="*{serviceName}" >

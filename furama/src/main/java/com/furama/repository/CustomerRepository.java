@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-    Page<Customer> findAllByNameContainingOrPersonalCodeContainingOrPhoneNumberContainingOrEmailContaining(String keyWord1, String keyWord2,String keyWord3,String keyWord4,Pageable pageable);
+    Page<Customer> findAllByNameContainingOrPersonalCodeContainingOrPhoneNumberContainingOrEmailContainingOrGuestType_GuestTypeNameContaining(String keyWord1, String keyWord2,String keyWord3,String keyWord4,String keyWord5,Pageable pageable);
 }

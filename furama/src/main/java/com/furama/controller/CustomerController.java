@@ -1,7 +1,6 @@
 package com.furama.controller;
 
 import com.furama.model.customer.Customer;
-import com.furama.model.facility.Facility;
 import com.furama.service.customer.CustomerService;
 import com.furama.service.guest_type.GuestTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
