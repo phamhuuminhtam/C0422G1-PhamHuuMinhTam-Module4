@@ -57,4 +57,12 @@ public class ProductController {
                 model.addAttribute("cart", cart);
         return "cart";
     }
+    @GetMapping("/remove")
+    public String removeToCart(@SessionAttribute Map<Product, Integer> cart,@RequestParam Long id, Model model ){
+        Product product = productService.findById(id).orElse(null);
+        cart.remove(product);
+        model.addAttribute("total", cartService.total(cart));
+        model.addAttribute("cart", cart);
+        return "cart";
+    }
 }

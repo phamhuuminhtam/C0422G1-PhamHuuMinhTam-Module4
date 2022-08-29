@@ -17,7 +17,10 @@
             <th>Price</th>
         </tr>
         <tr th:each="product: ${cart.keySet()}">
-            <td th:text="${product.name}"></td>
+            <td>
+                <a th:href="@{/remove(id= ${product.id})}" th:text="${'X'}"></a>
+                <span th:text="${product.name}"></span>
+            </td>
             <td>
                 <a id="decrease_button" th:href="@{/add(id= ${product.id},expression ='-')}" th:text="${'-'}"></a>
                 <span th:text="${cart.get(product)}"></span>
