@@ -9,7 +9,7 @@
 <p th:text="${product.name}"></p>
 <p th:text="${product.price}"></p>
 <p th:text="${product.description}"></p>
-<img src="${product.img}" alt="">
+<img th:src="${product.img}" alt="">
 <a th:href="@{/add(id=${product.id},expression='+')}">Mua ngay</a>
 </body>
 </html>
