@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:fragment="cssBootstrap">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </th:block>
+
+</head>
+<body>
+
+<nav th:replace="~{layout::navbar}"></nav>
+<a href="/create">Create new Blog</a>
+
+<form action="/search" method="get">
+    <input type="text" name="key" th:value="${keyWord}">
+    <button type="submit">Search</button>
+    <div th:object="${blog}">
+        <select name="" id="" th:field="*{category}">
+            <option value="">Select</option>
+            <option th:each="category: ${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
+        </select>
+    </div>
+</form>
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="bloglist,loop : ${blogList}">
+        <td th:text="${loop.count + blogList.number*2}"></td>
+        <td th:text="${bloglist.id}"></td>
+        <td th:text="${bloglist.title}"></td>
+        <td th:text="${bloglist.category.name}"></td>
+        <td>
+            <a th:href="@{/detail(id=${bloglist.id})}">Detail</a>
+            <a th:href="@{/edit(id=${bloglist.id})}">Edit</a>
+            <a th:href="@{/delete(id=${bloglist.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<form hidden action="/" method="get" id="pForm" th:object="${blog}">
+    <input type="text" th:value="${blogList.number -1}" th:name="page">
+    <input type="text" th:value="${keyWord}" th:name="key">
+    <input type="text" th:field="*{category}">
+</form>
+<form hidden action="/" method="get" id="nForm" th:object="${blog}">
+    <input type="text" th:value="${blogList.number +1}" th:name="page">
+    <input type="text" th:value="${keyWord}" th:name="key">
+    <input type="text" th:field="*{category}">
+</form>
+<a class="btn btn-primary" onclick="submitButtonP()" th:if="${blogList.hasPrevious()}"> Previous</a>
+<span th:text="${blogList.number +1}"></span>/<span th:text="${blogList.totalPages}"></span>
+<a class="btn btn-primary"  onclick="submitButtonN()" th:if="${blogList.hasNext()}"> Next</a>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script>
+    function submitButtonP() {
+        document.getElementById("pForm").submit();
+    }
+
+    function submitButtonN() {
+        document.getElementById("nForm").submit();
+    }
+
+</script>
+</body>
+</html>
