@@ -4,6 +4,8 @@ import com.furama.model.facility.Facility;
 import com.furama.repository.FacilityRepository;
 import com.furama.service.facility.FacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +26,8 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public List<Facility> findAll() {
-        return facilityRepository.findAll();
+    public Page<Facility> findAll(Pageable pageable, String keyWord) {
+        return facilityRepository.findAllByServiceNameContainingOrServiceType_ServiceTypeNameContainingOrDescriptionOtherConvenienceContaining(keyWord,keyWord,keyWord,pageable);
     }
 
     @Override

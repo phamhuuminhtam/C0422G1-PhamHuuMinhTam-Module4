@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:replace="~{/layout::header}"></div>
-<nav th:replace="~{/layout::navbar}"></nav>
+<nav th:replace="~{/layout::navbar(mapCus='/facility/')}"></nav>
 
 <div class="container-fluid">
 
@@ -34,7 +34,7 @@
             </thead>
             <tbody>
             <tr th:each="facility, loop:${facilityList}">
-                <td th:text="${loop.count}"></td>
+                <td th:text="${loop.count+ facilityList.number * size }"></td>
                 <td th:text="${facility.serviceName}"></td>
                 <td th:text="${facility.squareUse}"></td>
                 <td th:text="${facility.cost}"></td>
@@ -62,14 +62,13 @@
         </table>
 
     </div>
-
 </div>
+<a class="btn btn-primary" th:href="@{/facility/(page=${facilityList.number - 1},keyWord=${keyWord})}" th:if="${facilityList.hasPrevious()}"> Previous</a>
+<span th:text="${facilityList.number +1}"></span>/<span th:text="${facilityList.totalPages}"></span>
+<a class="btn btn-primary"  th:href="@{/facility/(page=${facilityList.number + 1},keyWord=${keyWord})}" th:if="${facilityList.hasNext()}"> Next</a>
+<div th:replace="~{/home::footer}"></div>
 
-<div class="row footer ">
-    <div class="col-lg-12 bg-success d-flex justify-content-center" style="height: 100px">
-        <p class="mt-2 text-white"> © 2018 Furama Resort Danang.</p>
-    </div>
-</div>
+
 </div>
 
 
