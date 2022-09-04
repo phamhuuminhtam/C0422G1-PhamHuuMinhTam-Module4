@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categoryrest")
+@RequestMapping("/categoryrests")
 public class CategoryRestController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/categorylist")
+    @GetMapping("/")
     public ResponseEntity<List<Category>> goListCategory() {
         List<Category> categoryList = categoryService.findAll();
         if (categoryList.isEmpty()) {

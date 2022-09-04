@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/blogrest")
+@RequestMapping("/blogrests")
 public class BlogRestController {
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("/bloglist")
+    @GetMapping("/")
     public ResponseEntity<Page<Blog>> goBlogListRest(@PageableDefault(size =5)Pageable pageable){
         Page<Blog> blogPage = blogService.findAllPage(pageable);
         if(!blogPage.hasContent()){
