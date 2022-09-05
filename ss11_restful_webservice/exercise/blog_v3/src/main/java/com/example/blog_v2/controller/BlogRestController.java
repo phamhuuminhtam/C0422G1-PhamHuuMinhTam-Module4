@@ -8,10 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/blogrests")
@@ -37,8 +34,8 @@ public class BlogRestController {
         return  new ResponseEntity<>(blogPage,HttpStatus.OK);
     }
 
-    @GetMapping("/blog-detail")
-    public ResponseEntity<Blog> showBlogDetail(@RequestParam Integer id){
+    @GetMapping("/{id}")
+    public ResponseEntity<Blog> showBlogDetail(@PathVariable Integer id){
         Blog blog = blogService.findById(id);
         if(blog ==null){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
