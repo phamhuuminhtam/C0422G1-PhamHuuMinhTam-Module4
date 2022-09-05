@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f7eec50-751c-42aa-ac45-5cd966484420" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../blog_front/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/.idea/blog_front.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/Blog-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../blog_front/js/jquery-3.5.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/PhoneApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/controller/SmartPhoneRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/model/SmartPhone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/repository/SmartPhoneRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/service/SmartPhoneService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/java/com/phone/service/impl/SmartPhoneServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/main/resources/templates/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back/src/test/java/com/phone/PhoneApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/front.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery-3.5.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss01_spring_mvc_overview/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss01_spring_mvc_overview/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss02_spring_controller/practice/customer-management/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss02_spring_controller/practice/customer-management/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss05_orm_db/practice/customer_management - Copy/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss05_orm_db/practice/customer_management - Copy/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss05_orm_db/practice/customer_management/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss05_orm_db/practice/customer_management/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss09_aop/practice/customer_management/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss09_aop/practice/customer_management/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../blog_v4/src/main/java/com/example/blog_v2/controller/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../blog_v4/src/main/java/com/example/blog_v2/controller/BlogRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../blog_v4/src/main/java/com/example/blog_v2/repository/BlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../blog_v4/src/main/java/com/example/blog_v2/repository/BlogRepository.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="2ELQI41A4bsSBqe1T1SxIaDTiIh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\repository\C0422G1-PhamHuuMinhTam-Module4\ss12_jquery_ajax\exercise\phone-management-spring\front\js" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f7eec50-751c-42aa-ac45-5cd966484420" name="Default Changelist" comment="" />
+      <created>1662372301551</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662372301551</updated>
+      <workItem from="1662372305518" duration="1902000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -14,4 +14,5 @@ Page<Blog> findAllByTitleContainingAndCategory_Id(String title,Integer id, Pagea
 
 Page<Blog> findAllByCategory_Id(Integer id, Pageable pageable);
 
+
 }

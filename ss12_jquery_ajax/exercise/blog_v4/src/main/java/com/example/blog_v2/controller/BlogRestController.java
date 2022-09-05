@@ -8,11 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
+@CrossOrigin
 @RestController
 @RequestMapping("/blogrests")
 public class BlogRestController {
@@ -20,8 +17,8 @@ public class BlogRestController {
     private BlogService blogService;
 
     @GetMapping("/")
-    public ResponseEntity<Page<Blog>> goBlogListRest(@PageableDefault(size =5)Pageable pageable){
-        Page<Blog> blogPage = blogService.findAllPage(pageable);
+    public ResponseEntity<Page<Blog>> goBlogListRest(@RequestParam String title,@PageableDefault Pageable pageable){
+        Page<Blog> blogPage = blogService.findAllByTitleContaining(title,pageable);
         if(!blogPage.hasContent()){
             return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -37,8 +34,8 @@ public class BlogRestController {
         return  new ResponseEntity<>(blogPage,HttpStatus.OK);
     }
 
-    @GetMapping("/blog-detail")
-    public ResponseEntity<Blog> showBlogDetail(@RequestParam Integer id){
+    @GetMapping("/{id}")
+    public ResponseEntity<Blog> showBlogDetail(@PathVariable Integer id){
         Blog blog = blogService.findById(id);
         if(blog ==null){
             return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
