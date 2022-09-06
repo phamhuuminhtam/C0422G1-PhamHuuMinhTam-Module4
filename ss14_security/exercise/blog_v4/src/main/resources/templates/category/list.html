@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Category</title>
+    <th:block th:fragment="cssBootstrap">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </th:block>
+
+</head>
+<body>
+
+<nav th:replace="~{layout::navbar}"></nav>
+<a href="/category/create">Create new Category</a>
+
+
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="category,loop : ${categoryList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+        <td>
+            <a th:href="@{/category/edit(id=${category.id})}">Edit</a>
+            <a th:href="@{/category/delete(id=${category.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

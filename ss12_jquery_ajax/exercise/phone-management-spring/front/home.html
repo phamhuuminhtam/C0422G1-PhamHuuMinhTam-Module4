@@ -22,17 +22,17 @@
 </table>
 <button id="showAdd">ADD</button>
 <form action="" hidden id="editForm">
-    ID <input type="text" id="idPhone" >
+    ID <input type="text" id="idPhone">
     Producer <input type="text" id="producer">
     Model <input type="text" id="model">
     Price <input type="text" id="price">
-    <button id="btnUpdateSubmit">Edit</button>
+    <button type="button" id="btnUpdateSubmit">Edit</button>
 </form>
 <form action="" hidden id="createForm">
     Producer <input type="text" id="producerNew">
     Model <input type="text" id="modelNew">
     Price <input type="text" id="priceNew">
-    <button id="btnCreateSubmit">ADD</button>
+    <button type="button" id="btnCreateSubmit">ADD</button>
 </form>
 <script src="js/jquery-3.5.1.min.js"></script>
 <script>
@@ -116,6 +116,7 @@
         });
 
     }
+
     $('#btnUpdateSubmit').click(function () {
         updatePhoneToDB()
     })
@@ -125,22 +126,25 @@
         var producerNew = $('#producer').val()
         var modelNew = $('#model').val()
         var priceNew = $('#price').val()
-        var phone = {
+        var smartPhone = {
             id: idPhone,
             producer: producerNew,
             model: modelNew,
             price: priceNew
         };
+        console.log(smartPhone);
         $.ajax({
             header: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "PATCH",
-            url: "http://localhost:8080/update",
-            data: JSON.stringify(phone),
-            success: function (resultSuccess) {
 
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "PATCH",
+            data: JSON.stringify(smartPhone),
+            url: "http://localhost:8080/update",
+
+            success: function (resultSuccess) {
+                getList()
             },
             error: function (resultError) {
                 alert('error');
@@ -157,22 +161,21 @@
         let producerNew = $('#producerNew').val()
         let modelNew = $('#modelNew').val()
         let priceNew = $('#priceNew').val()
-        let phone = {
+        let smartPhone = {
             producer: producerNew,
             model: modelNew,
             price: priceNew
         };
-        console.log(phone)
         $.ajax({
             header: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
             },
+            contentType: "application/json; charset=utf-8",
             type: "POST",
+            data: JSON.stringify(smartPhone),
             url: "http://localhost:8080/create",
-            data: JSON.stringify(phone),
             success: function (resultSuccess) {
-
+                getList()
             },
             error: function (resultError) {
                 alert('error');
