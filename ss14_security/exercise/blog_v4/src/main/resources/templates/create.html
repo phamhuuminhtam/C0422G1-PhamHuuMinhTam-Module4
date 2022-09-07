@@ -6,6 +6,7 @@
     <th:block th:replace="~{list::cssBootstrap}"></th:block>
 </head>
 <body>
+<th:block th:include="/_menu"></th:block>
 <nav th:replace="~{layout::navbar}"></nav>
 <div class="container">
 <form action="/create" method="post" th:object="${blog}">

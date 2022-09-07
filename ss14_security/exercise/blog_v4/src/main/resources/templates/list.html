@@ -9,9 +9,9 @@
 
 </head>
 <body>
-
+<th:block th:include="/_menu"></th:block>
 <nav th:replace="~{layout::navbar}"></nav>
-<a href="/create">Create new Blog</a>
+<a th:if="${check.contains('ADMIN')}" href="/create">Create new Blog</a>
 
 <form action="/search" method="get">
     <input type="text" name="key" th:value="${keyWord}">
@@ -39,8 +39,8 @@
         <td th:text="${bloglist.category.name}"></td>
         <td>
             <a th:href="@{/detail(id=${bloglist.id})}">Detail</a>
-            <a th:href="@{/edit(id=${bloglist.id})}">Edit</a>
-            <a th:href="@{/delete(id=${bloglist.id})}">Delete</a>
+            <a th:if="${check.contains('ADMIN')}" th:href="@{/edit(id=${bloglist.id})}">Edit</a>
+            <a th:if="${check.contains('ADMIN')}" th:href="@{/delete(id=${bloglist.id})}">Delete</a>
         </td>
     </tr>
 </table>
