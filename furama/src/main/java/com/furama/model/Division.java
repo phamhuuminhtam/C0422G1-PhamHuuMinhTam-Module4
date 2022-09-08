@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="bo_phan")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,9 +18,10 @@ import java.util.List;
 public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_bo_phan")
     private Integer idDivision;
+    @Column(name="ten_bo_phan")
     private String divisionName;
-
     @OneToMany(mappedBy = "division")
     private List<Employee> employeeList;
 }

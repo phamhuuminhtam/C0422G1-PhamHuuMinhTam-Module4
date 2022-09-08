@@ -10,8 +10,9 @@
 <nav th:replace="~{/layout::navbar}"></nav>
 
 <div class="container-fluid">
-    <input value="${message}" id="message" hidden>
-    <button style="position: fixed;right: 0" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" onclick="showModalAddControl('a','b','c')">
+    <input th:value="${message}" id="message" hidden>
+    <button style="position: absolute;right: 0" type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#addEmployeeModal" onclick="showModalAddControl('a','b','c')">
         Thêm mới nhân viên
     </button>
     <h2 CLASS="text-center">DANH SÁCH NHÂN VIÊN</h2>
@@ -44,13 +45,13 @@
                 <td th:text="${employee.getEducation().getEducationName()}"></td>
                 <td th:text="${employee.getDivision().getDivisionName()}"></td>
                 <td th:text="${employee.getPosition().getPositionName()}"></td>
-                <td th:text="${employee.salary}"></td>
+                <td th:text="${#numbers.formatDecimal(employee.salary, 0, 'COMMA', 0, 'POINT') }"></td>
                 <td>
                     <a type="button" class="btn btn-primary"
                        th:href="@{/employee/edit(id=${employee.idEmployee})}">
                         Sửa
                     </a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
                             th:attr="onclick=|showModalDelete('${employee.idEmployee}','${employee.name}')|">
                         Xóa
                     </button>
@@ -69,7 +70,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/customer/delete" method="post">
+        <form action="/employee/delete" method="post">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
@@ -92,188 +93,162 @@
 
 <div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/customer?action=deleteCustomer" method="post">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Thông báo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body container-fluid">
-                    <p id="modalAlertMes"></p>
-
+                    <div id="modalAlertMes"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
-        </form>
+
     </div>
 </div>
 
 
 <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="" method="">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">THÊM MỚI NHÂN VIÊN</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body container-fluid">
 
-                    <div class="container  mt-4 p-2 mb-4" style="border: 1px solid grey; border-radius: 15px">
-                        <form class="row g-3" action="" method="post">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel2">THÊM MỚI NHÂN VIÊN</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body container-fluid">
 
+                <div class="container  mt-4 p-2 mb-4" style="border: 1px solid grey; border-radius: 15px">
+                    <form class="row g-3" action="/employee/add" method="post" th:object="${employeeAdd}">
+                        <div class="col-md-12">
+                            <label for="name" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="name" th:field="*{name}">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="birhtday" class="form-label">Ngày sinh </label>
+                            <input type="date" class="form-control" id="birhtday" th:field="*{dayOfBirth}">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_card" class="form-label">Số CMND</label>
+                            <input type="text" class="form-control" id="id_card" th:field="*{personalCode}">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="phone" class="form-label">Số Điện Thoại</label>
+                            <input type="text" class="form-control" id="phone" th:field="*{phoneNumber}">
+                        </div>
+                        <div class="col-md-12 ">
+                            <label for="email" class="form-label">Email </label>
+                            <input type="text" class="form-control" id="email" th:field="*{email}">
+                        </div>
 
-                            <div class="col-md-12">
-                                <label for="name" class="form-label">Họ tên</label>
-                                <input type="text" class="form-control" id="name" name="name">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="birhtday" class="form-label">Ngày sinh </label>
-                                <input type="date" class="form-control" id="birhtday" name="birhtday">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="id_card" class="form-label">Số CMND</label>
-                                <input type="text" class="form-control" id="id_card"  name="id_card" >
-                            </div>
-                            <div class="col-md-12">
-                                <label for="phone" class="form-label">Số Điện Thoại</label>
-                                <input type="text" class="form-control" id="phone" name="phone">
-                            </div>
-                            <div class="col-md-12 "  >
-                                <label for="email" class="form-label">Email </label>
-                                <input type="text" class="form-control" id="email" name="email">
-                            </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Trình độ </label>
+                            <select name="education_degree_id" class="form-select" th:field="*{education}">
+                                <option value="">Chọn loại trình độ</option>
+                                <option th:each="e : ${educationList}" th:value="${e.getIdEducation()}"
+                                        th:text="${e.getEducationName()}"></option>
+                            </select>
+                        </div>
 
-                            <div class="col-md-12">
-                                <label class="form-label">Trình độ  </label>
-                                <select name="education_degree_id"  class="form-select" >
-                                    <option value="None" >Chọn loại trình độ</option>
-                                    <option value="1" >Trung cấp</option>
-                                    <option value="2" >Cao đẳng</option>
-                                    <option value="3" >Đại học </option>
-                                    <option value="4" >Sau đại học</option>
+                        <div class="col-md-12">
+                            <label class="form-label">Bộ phận</label>
+                            <select name="education_degree_id" class="form-select" th:field="*{division}">
+                                <option value="None">Chọn bộ phận làm việc</option>
+                                <option th:each="d : ${divisionList}" th:value="${d.getIdDivision()}"
+                                        th:text="${d.getDivisionName()}"></option>
+                            </select>
+                        </div>
 
-                                </select>
-                            </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Vị trí </label>
+                            <select name="position_id" class="form-select" th:field="*{position}">
+                                <option value="None">Chọn vị trí</option>
+                                <option th:each="p : ${position}" th:value="${p.getIdPosition()}"
+                                        th:text="${p.getPositionName()}"></option>
+                            </select>
+                        </div>
 
-                            <div class="col-md-12">
-                                <label class="form-label">Bộ phận</label>
-                                <select name="education_degree_id"  class="form-select" >
-                                    <option value="None" >Chọn bộ phận làm việc</option>
-                                    <option value="1" >Sale – Marketing</option>
-                                    <option value="2" >Hành Chính</option>
-                                    <option value="3" >Phục vụ </option>
-                                    <option value="4" >Quản lý</option>
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label class="form-label">Vị trí </label>
-                                <select name="position_id"  class="form-select" >
-                                    <option value="None" >Chọn vị trí</option>
-                                    <option value="1" >Lễ tân</option>
-                                    <option value="2" >Phục vụ</option>
-                                    <option value="3" >Chuyên viên </option>
-                                    <option value="4" >Giám sát</option>
-                                    <option value="4" >Quản lý</option>
-                                    <option value="4" >Giám đốc</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-12 "  >
-                                <label for="salary" class="form-label">Lương </label>
-                                <input type="text" class="form-control" id="salary" name="salary">
-                            </div>
-                            <div class="col-12  mt-2">
-                                <button type="submit" class="btn btn-primary">Gửi</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="col-md-12 ">
+                            <label for="salary" class="form-label">Lương </label>
+                            <input type="text" class="form-control" id="salary" th:field="*{salary}">
+                        </div>
+                        <div class="col-12  mt-2">
+                            <button type="submit" class="btn btn-primary">Gửi</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
+
     </div>
 </div>
 
-<div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form action="" method="">
+<div th:if="${edit != null}">
+    <input th:value="${edit}" id="checkEdit" hidden>
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalEditLable">SỬA THÔNG TIN NHÂN VIÊN</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body container-fluid">
-
                     <div class="container  mt-4 p-2 mb-4" style="border: 1px solid grey; border-radius: 15px">
-                        <form class="row g-3" action="" method="post">
-
-
+                        <form class="row g-3" action="/employee/edit" method="post" th:object="${employeeEdit}">
+                            <input th:field="*{idEmployee}" type="text" hidden>
                             <div class="col-md-12">
                                 <label for="name" class="form-label">Họ tên</label>
-                                <input type="text" class="form-control" id="nameEdit" name="name">
+                                <input type="text" class="form-control" id="name" th:field="*{name}">
                             </div>
                             <div class="col-md-12">
                                 <label for="birhtday" class="form-label">Ngày sinh </label>
-                                <input type="date" class="form-control" id="birhtdayEdit" name="birhtday">
+                                <input type="date" class="form-control" id="birhtday" th:field="*{dayOfBirth}">
                             </div>
-
                             <div class="col-md-12">
                                 <label for="id_card" class="form-label">Số CMND</label>
-                                <input type="text" class="form-control" id="id_cardEdit"  name="id_card" >
+                                <input type="text" class="form-control" id="id_card" th:field="*{personalCode}">
                             </div>
                             <div class="col-md-12">
                                 <label for="phone" class="form-label">Số Điện Thoại</label>
-                                <input type="text" class="form-control" id="phoneEdit" name="phone">
+                                <input type="text" class="form-control" id="phone" th:field="*{phoneNumber}">
                             </div>
-                            <div class="col-md-12 " id="s1" >
+                            <div class="col-md-12 ">
                                 <label for="email" class="form-label">Email </label>
-                                <input type="text" class="form-control" id="emailEdit" name="email">
+                                <input type="text" class="form-control" id="email" th:field="*{email}">
                             </div>
 
                             <div class="col-md-12">
-                                <label class="form-label">Trình độ  </label>
-                                <select name="education_degree_id"  class="form-select" >
-                                    <option value="None" >Chọn loại trình độ</option>
-                                    <option value="1" >Trung cấp</option>
-                                    <option value="2" >Cao đẳng</option>
-                                    <option value="3" >Đại học </option>
-                                    <option value="4" >Sau đại học</option>
-
+                                <label class="form-label">Trình độ </label>
+                                <select name="education_degree_id" class="form-select" th:field="*{education}">
+                                    <option th:each="e : ${educationList}" th:value="${e.getIdEducation()}"
+                                            th:text="${e.getEducationName()}"></option>
                                 </select>
                             </div>
 
                             <div class="col-md-12">
                                 <label class="form-label">Bộ phận</label>
-                                <select name="education_degree_id"  class="form-select" >
-                                    <option value="None" >Chọn bộ phận làm việc</option>
-                                    <option value="1" >Sale – Marketing</option>
-                                    <option value="2" >Hành Chính</option>
-                                    <option value="3" >Phục vụ </option>
-                                    <option value="4" >Quản lý</option>
+                                <select name="education_degree_id" class="form-select" th:field="*{division}">
 
+                                    <option th:each="d : ${divisionList}" th:value="${d.getIdDivision()}"
+                                            th:text="${d.getDivisionName()}"></option>
                                 </select>
                             </div>
 
                             <div class="col-md-12">
                                 <label class="form-label">Vị trí </label>
-                                <select name="position_id"  class="form-select" >
-                                    <option value="None" >Chọn vị trí</option>
-                                    <option value="1" >Lễ tân</option>
-                                    <option value="2" >Phục vụ</option>
-                                    <option value="3" >Chuyên viên </option>
-                                    <option value="4" >Giám sát</option>
-                                    <option value="4" >Quản lý</option>
-                                    <option value="4" >Giám đốc</option>
+                                <select name="position_id" class="form-select" th:field="*{position}">
+
+                                    <option th:each="p : ${position}" th:value="${p.getIdPosition()}"
+                                            th:text="${p.getPositionName()}"></option>
                                 </select>
                             </div>
 
-                            <div class="col-md-12 " id="s2" >
+                            <div class="col-md-12 ">
                                 <label for="salary" class="form-label">Lương </label>
-                                <input type="text" class="form-control" id="salaryEdit" name="salary">
+                                <input type="text" class="form-control" id="salary" th:field="*{salary}">
                             </div>
                             <div class="col-12  mt-2">
                                 <button type="submit" class="btn btn-primary">Gửi</button>
@@ -282,7 +257,8 @@
                     </div>
                 </div>
             </div>
-        </form>
+
+        </div>
     </div>
 </div>
 
@@ -290,7 +266,6 @@
     function showModalDelete(a, b) {
         document.getElementById("delete_modal").innerText = b;
         document.getElementById("sendId").value = a;
-
     }
 </script>
 
@@ -300,17 +275,23 @@
 
 
 <script>
-
     window.onload = function () {
-        var message = document.getElementById("message").value;
-        document.getElementById("modalAlertMes").innerText = message;
-        if (message != "" && message != null) {
+        if ($('#message').val() != null && $('#message').val() != "") {
+            $("#modalAlertMes").html($('#message').val());
             $(document).ready(function () {
                     $('#modalAlert').modal("show")
                 }
             )
         }
     }
+
+    $(document).ready(function () {
+        if ($('#checkEdit').val() == "edit") {
+            $('#editEmployeeModal').modal("show")
+            $('#checkEdit').val("")
+        }
+    })
+
 </script>
 </body>
 </html>

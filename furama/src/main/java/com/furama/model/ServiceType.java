@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="loai_dich_vu")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +18,9 @@ import java.util.List;
 public class ServiceType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_loai_dich_vu")
     private Integer idServiceType;
+    @Column(name="ten_loai_dich_vu")
     private String serviceTypeName;
 
     @OneToMany(mappedBy = "serviceType")

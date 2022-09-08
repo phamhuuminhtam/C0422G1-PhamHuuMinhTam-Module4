@@ -24,7 +24,7 @@ public class CustomerController {
     private GuestTypeService guestTypeService;
 
     @GetMapping(value = {""})
-    public String goListCustomer(Model model, @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> keyWord) {
+    public String goListCustomer(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam Optional<String> keyWord) {
         String key;
 
         if (keyWord.isPresent()) {

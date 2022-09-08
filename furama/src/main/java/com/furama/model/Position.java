@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="vi_tri")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,7 +19,9 @@ import java.util.List;
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_vi_tri")
     private Integer idPosition;
+    @Column(name="ten_vi_tri")
     private String positionName;
 
     @OneToMany(mappedBy = "position")

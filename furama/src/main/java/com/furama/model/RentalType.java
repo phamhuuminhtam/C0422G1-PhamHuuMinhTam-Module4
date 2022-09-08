@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "kieu_thue")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +18,9 @@ import java.util.List;
 public class RentalType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_kieu_thue")
     private int idRentalType;
+    @Column(name="ten_kieu_thue")
     private String rentalTypeName;
 
     @OneToMany(mappedBy = "rentalType")

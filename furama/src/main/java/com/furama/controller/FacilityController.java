@@ -27,7 +27,7 @@ public class FacilityController {
     private FacilityService facilityService;
 
     @GetMapping("")
-    public String goListFacility(Model model, @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> keyWord) {
+    public String goListFacility(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam Optional<String> keyWord) {
 
         String key;
 

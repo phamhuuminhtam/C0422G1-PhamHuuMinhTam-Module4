@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="loai_khach")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,7 +19,9 @@ import java.util.List;
 public class GuestType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_loai_khach")
     private Integer idGuestType;
+    @Column(name="ten_loai_khach")
     private String guestTypeName;
 
     @OneToMany(mappedBy = "guestType")

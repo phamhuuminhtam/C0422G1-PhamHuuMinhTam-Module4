@@ -14,11 +14,13 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table
+@Table(name = "trinh_do")
 public class EducationDegree {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ma_trinh_do")
     private Integer idEducation;
+    @Column(name="ten_trinh_do")
     private String educationName;
 
     @OneToMany(mappedBy = "education")
