@@ -30,13 +30,13 @@
 
             </tr>
             <tr th:each="contract,loop: ${contractList}">
-                <td th:text="${loop.count}"></td>
-                <td th:text="${contract.idFacility}"></td>
-                <td th:text="${contract.idCustomer}"></td>
-                <td th:text="${contract.startDate}"></td>
-                <td th:text="${contract.endDate}"></td>
-                <td th:text="${contract.deposit}"></td>
-                <td th:text="${contract.total}"></td>
+                <td th:text="${loop.count + size* contractList.number}"></td>
+                <td th:text="${contract.getFacility()}"></td>
+                <td th:text="${contract.getCustomer()}"></td>
+                <td th:text="${contract.getStart()}"></td>
+                <td th:text="${contract.getEnds()}"></td>
+                <td th:text="${contract.getDeposit()}"></td>
+                <td th:text="${#numbers.formatDecimal(contract.getTotal(), 0, 'COMMA', 0, 'POINT') }"></td>
 
 
                 <td class="d-flex justify-content-center">
