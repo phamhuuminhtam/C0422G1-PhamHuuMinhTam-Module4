@@ -4,6 +4,7 @@ package com.furama.model.employee;
 import com.furama.model.Division;
 import com.furama.model.EducationDegree;
 import com.furama.model.Position;
+import com.furama.model.contract.Contract;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "nhan_vien")
@@ -50,4 +52,8 @@ public class Employee {
     private Double salary;
     @Column(name = "dia_chi")
     private String address;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
+
 }

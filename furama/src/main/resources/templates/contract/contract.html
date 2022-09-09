@@ -29,14 +29,16 @@
                 <th>Các dịch vụ đi kèm</th>
 
             </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
+            <tr th:each="contract,loop: ${contractList}">
+                <td th:text="${loop.count}"></td>
+                <td th:text="${contract.idFacility}"></td>
+                <td th:text="${contract.idCustomer}"></td>
+                <td th:text="${contract.startDate}"></td>
+                <td th:text="${contract.endDate}"></td>
+                <td th:text="${contract.deposit}"></td>
+                <td th:text="${contract.total}"></td>
+
+
                 <td class="d-flex justify-content-center">
 
                     <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal"

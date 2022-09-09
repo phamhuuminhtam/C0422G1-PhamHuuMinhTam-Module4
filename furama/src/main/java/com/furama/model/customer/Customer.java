@@ -2,6 +2,7 @@ package com.furama.model.customer;
 
 
 import com.furama.model.GuestType;
+import com.furama.model.contract.Contract;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name="khach_hang")
@@ -41,4 +43,8 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name="ma_loai_khach", referencedColumnName="ma_loai_khach")
     private GuestType guestType;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contractList;
+
 }

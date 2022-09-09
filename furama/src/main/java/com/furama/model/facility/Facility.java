@@ -2,12 +2,14 @@ package com.furama.model.facility;
 
 import com.furama.model.RentalType;
 import com.furama.model.ServiceType;
+import com.furama.model.contract.Contract;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="dich_vu")
@@ -45,4 +47,7 @@ public class Facility {
     @ManyToOne
     @JoinColumn(name="ma_kieu_thue", referencedColumnName="ma_kieu_thue")
     private RentalType rentalType;
+
+    @OneToMany(mappedBy = "facility")
+    private List<Contract> contractList;
 }
