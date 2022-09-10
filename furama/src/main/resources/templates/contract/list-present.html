@@ -209,7 +209,7 @@
             type: "GET",
             url: "http://localhost:8080/contract-rest/editFacilitytoDB?id=" + id + "&idc=" +idc,
             success: function (resultSuccess) {
-                alert(resultSuccess);
+                location.reload();
             }
             ,
             error: function (resultError) {
