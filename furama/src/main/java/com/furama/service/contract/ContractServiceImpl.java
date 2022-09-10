@@ -42,4 +42,16 @@ public class ContractServiceImpl implements ContractService {
         LocalDate now = LocalDate.now();
         return contractRepositoryNew.findAllByEndDateAfter(now,pageable);
     }
+
+    @Override
+    public Contract findByID(Integer id) {
+        return contractRepositoryNew.findById(id).orElse(null);
+    }
+
+    @Override
+    public Contract save(Contract contract) {
+        return contractRepositoryNew.save(contract);
+    }
+
+
 }

@@ -17,5 +17,8 @@ public interface FacilityService {
     Facility searchFacility(Integer idSearch);
 
     void save(Facility facility);
+
     List<Facility> findFacilityList();
+
+
 }

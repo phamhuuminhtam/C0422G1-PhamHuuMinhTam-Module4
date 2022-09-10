@@ -10,8 +10,8 @@
 <nav th:replace="~{/layout::navbar(mapCus='/customer/')}"></nav>
 
 <div class="container-fluid">
-<!--    <input value="${message}" id="message" hidden>-->
-    <input  id="message" hidden>
+    <!--    <input value="${message}" id="message" hidden>-->
+    <input id="message" hidden>
     <h2 CLASS="text-center">DANH SÁCH KHÁCH HÀNG ĐANG SỬ DỤNG DỊCH VỤ</h2>
     <div class="row main mt-2 ">
         <table class="table table-striped" id="tableCustomer">
@@ -38,6 +38,10 @@
                 <td th:text="${contract.endDate}"></td>
                 <td>
                     <button type="button" class="btn btn-primary"
+                            th:attr="onclick=|showModalChangeFacility('${contract.facility.serviceName}','${contract.idContract}')|">
+                        Thay đổi dịch vụ
+                    </button>
+                    <button type="button" class="btn btn-primary"
                             th:attr="onclick=|showModalDetailAttach('${contract.idContract}')|">
                         Danh sách các dịch vụ đi kèm
                     </button>
@@ -48,9 +52,11 @@
     </div>
 
 </div>
-<a class="btn btn-primary" th:href="@{/contract/present(page=${contractList.number - 1})}" th:if="${contractList.hasPrevious()}"> Previous</a>
+<a class="btn btn-primary" th:href="@{/contract/present(page=${contractList.number - 1})}"
+   th:if="${contractList.hasPrevious()}"> Previous</a>
 <span th:text="${contractList.number +1}"></span>/<span th:text="${contractList.totalPages}"></span>
-<a class="btn btn-primary"  th:href="@{//contract/present(page=${contractList.number + 1})}" th:if="${contractList.hasNext()}"> Next</a>
+<a class="btn btn-primary" th:href="@{//contract/present(page=${contractList.number + 1})}"
+   th:if="${contractList.hasNext()}"> Next</a>
 <div th:replace="~{/home::footer}"></div>
 
 <!-- Modal -->
@@ -82,6 +88,25 @@
 
     </div>
 </div>
+
+<div class="modal fade" id="editFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">DANH SÁCH DỊCH VỤ ĐI KÈM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body container-fluid">
+                <div id="optionchoose">
+
+                </div>
+                <button class="btn btn-success" type="button" onclick="submitChange()">Thay đổi</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <script>
     function showModalDelete(a, b) {
         document.getElementById("delete_modal").innerText = b;
@@ -97,16 +122,16 @@
 
 <script>
 
-    window.onload = function () {
-        var message = document.getElementById("message").value;
-        document.getElementById("modalAlertMes").innerText = message;
-        if (message != "" && message != null) {
-            $(document).ready(function () {
-                    $('#modalAlert').modal("show")
-                }
-            )
-        }
-    }
+    // window.onload = function () {
+    //     var message = document.getElementById("message").value;
+    //     document.getElementById("modalAlertMes").innerText = message;
+    //     if (message != "" && message != null) {
+    //         $(document).ready(function () {
+    //                 $('#modalAlert').modal("show")
+    //             }
+    //         )
+    //     }
+    // }
 
     function showModalDetailAttach(a) {
         $('#attachFacility').modal('show')
@@ -133,6 +158,58 @@
                     }
                 htmlStr += `<tr><td colspan="4">Tổng</td><td>${total}</td> </tr>`
                 $('#attachBody').html(htmlStr)
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+    }
+
+    function showModalChangeFacility(a,b) {
+        $('#editFacility').modal('show')
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "GET",
+            url: "http://localhost:8080/contract-rest/editFacility",
+            success: function (resultSuccess) {
+                console.log(resultSuccess)
+                let listFacility = resultSuccess
+                let htmlStr = "<select id='facilityChange'>";
+                for (let i = 0; i < listFacility.length; i++) {
+                    if (a == listFacility[i].serviceName)
+
+                        htmlStr += `<option selected>${listFacility[i].serviceName}</option> `
+                    else htmlStr += `<option value = "${listFacility[i].idFacility}">${listFacility[i].serviceName}</option> `
+                }
+                htmlStr += "</select>" +
+                    "<input id='contractId' type='text'hidden value='" + b + "'>";
+                $('#optionchoose').html(htmlStr)
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+    }
+
+    function submitChange() {
+        let id = $('#facilityChange').val()
+        let idc = $('#contractId').val()
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "GET",
+            url: "http://localhost:8080/contract-rest/editFacilitytoDB?id=" + id + "&idc=" +idc,
+            success: function (resultSuccess) {
+                alert(resultSuccess);
             }
             ,
             error: function (resultError) {

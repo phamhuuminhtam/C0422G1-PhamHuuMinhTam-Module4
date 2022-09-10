@@ -1,5 +1,6 @@
 package com.furama.model.facility;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.furama.model.RentalType;
 import com.furama.model.ServiceType;
 import com.furama.model.contract.Contract;
@@ -42,12 +43,14 @@ public class Facility {
     private String freeServiceAdd;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="ma_loai_dich_vu", referencedColumnName="ma_loai_dich_vu")
     private ServiceType serviceType;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="ma_kieu_thue", referencedColumnName="ma_kieu_thue")
     private RentalType rentalType;
-
+    @JsonBackReference
     @OneToMany(mappedBy = "facility")
     private List<Contract> contractList;
 }

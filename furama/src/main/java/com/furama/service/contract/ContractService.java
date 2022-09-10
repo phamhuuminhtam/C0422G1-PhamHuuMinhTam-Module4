@@ -17,4 +17,8 @@ public interface ContractService {
   List<AttachServiceFree> getAttachServiceFree(Integer idc);
 
   Page<Contract> getCustomerPresent(Pageable pageable);
+
+  Contract findByID(Integer id);
+
+  Contract save(Contract contract);
 }
