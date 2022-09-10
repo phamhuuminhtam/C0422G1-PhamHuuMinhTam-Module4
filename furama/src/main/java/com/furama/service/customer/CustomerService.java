@@ -4,6 +4,8 @@ import com.furama.model.customer.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 
 public interface CustomerService {
 
@@ -14,4 +16,6 @@ public interface CustomerService {
     Customer findById(Integer id);
 
     void delete(Integer id);
+
+    List<Customer> findCustomerList();
 }

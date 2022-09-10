@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <th:block th:replace="~{/layout::cssbackground}"></th:block>
+</head>
+<body>
+<div th:replace="~{/layout::header}"></div>
+<nav th:replace="~{/layout::navbar(mapCus='/customer/')}"></nav>
+
+<div class="container-fluid">
+<!--    <input value="${message}" id="message" hidden>-->
+    <input  id="message" hidden>
+    <h2 CLASS="text-center">DANH SÁCH KHÁCH HÀNG ĐANG SỬ DỤNG DỊCH VỤ</h2>
+    <div class="row main mt-2 ">
+        <table class="table table-striped" id="tableCustomer">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên dịch vụ</th>
+                <th>Họ tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Ngày làm hợp đồng</th>
+                <th>Ngày kết thúc</th>
+                <th>Hành động</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="contract,status : ${contractList}">
+                <td th:text="${status.count + contractList.number * size }"></td>
+                <td th:text="${contract.facility.serviceName}"></td>
+                <td th:text="${contract.customer.name}"></td>
+                <td th:text="${contract.customer.phoneNumber}"></td>
+                <td th:text="${contract.startDate}"></td>
+                <td th:text="${contract.endDate}"></td>
+                <td>
+                    <button type="button" class="btn btn-primary"
+                            th:attr="onclick=|showModalDetailAttach('${contract.idContract}')|">
+                        Danh sách các dịch vụ đi kèm
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<a class="btn btn-primary" th:href="@{/contract/present(page=${contractList.number - 1})}" th:if="${contractList.hasPrevious()}"> Previous</a>
+<span th:text="${contractList.number +1}"></span>/<span th:text="${contractList.totalPages}"></span>
+<a class="btn btn-primary"  th:href="@{//contract/present(page=${contractList.number + 1})}" th:if="${contractList.hasNext()}"> Next</a>
+<div th:replace="~{/home::footer}"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditLable">DANH SÁCH DỊCH VỤ ĐI KÈM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body container-fluid">
+                <table class="table table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>Tên dịch vụ đi kèm</th>
+                        <th>Đơn vị</th>
+                        <th>Giá tiền</th>
+                        <th>Số lượng</th>
+                    </tr>
+                    <tbody id="attachBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function showModalDelete(a, b) {
+        document.getElementById("delete_modal").innerText = b;
+        document.getElementById("sendId").value = a;
+
+    }
+</script>
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script>
+
+    window.onload = function () {
+        var message = document.getElementById("message").value;
+        document.getElementById("modalAlertMes").innerText = message;
+        if (message != "" && message != null) {
+            $(document).ready(function () {
+                    $('#modalAlert').modal("show")
+                }
+            )
+        }
+    }
+
+    function showModalDetailAttach(a) {
+        $('#attachFacility').modal('show')
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/contract-rest?idc=" + a,
+            success: function (resultSuccess) {
+                let total = 0;
+                console.log(resultSuccess)
+                let htmlStr = '';
+                if (resultSuccess[0].name != null)
+                    for (let i = 0; i < resultSuccess.length; i++) {
+                        total += resultSuccess[i].price * resultSuccess[i].quantity
+                        htmlStr += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${resultSuccess[i].name}</td>
+                        <td>${resultSuccess[i].unit}</td>
+                         <td>${resultSuccess[i].quantity}</td>
+                         <td>${resultSuccess[i].price}</td></tr>`
+                    }
+                htmlStr += `<tr><td colspan="4">Tổng</td><td>${total}</td> </tr>`
+                $('#attachBody').html(htmlStr)
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

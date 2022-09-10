@@ -53,4 +53,9 @@ public class FacilityServiceImpl implements FacilityService {
         facilityRepository.save(facility);
     }
 
+    @Override
+    public List<Facility> findFacilityList() {
+        return facilityRepository.findAll();
+    }
+
 }

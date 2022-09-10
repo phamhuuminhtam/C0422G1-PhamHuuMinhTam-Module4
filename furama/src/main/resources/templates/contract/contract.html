@@ -10,10 +10,10 @@
 <nav th:replace="~{/layout::navbar}"></nav>
 
 <div class="container">
-    <button style="position: fixed;right: 0" type="button" class="btn btn-success mt-1" data-bs-toggle="modal"
+    <a class="bnt btn-success" href="/contract/add" style="position: fixed;right: 0" type="button" class="btn btn-success mt-1" data-bs-toggle="modal"
             data-bs-target="#addContact" onclick="">
         THÊM MỚI HỢP ĐỒNG
-    </button>
+    </a>
     <h2 CLASS="text-center">DANH SÁCH HỢP ĐỒNG</h2>
     <div class="row main mt-2 ">
         <table class="table table-striped">
@@ -35,7 +35,7 @@
                 <td th:text="${contract.getCustomer()}"></td>
                 <td th:text="${contract.getStart()}"></td>
                 <td th:text="${contract.getEnds()}"></td>
-                <td th:text="${contract.getDeposit()}"></td>
+                <td th:text="${#numbers.formatDecimal(contract.getDeposit(), 0, 'COMMA', 0, 'POINT') }"></td>
                 <td th:text="${#numbers.formatDecimal(contract.getTotal(), 0, 'COMMA', 0, 'POINT') }"></td>
 
 
@@ -45,9 +45,9 @@
                             data-bs-target="#addContactDetail" onclick="">
                         +
                     </button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#attachFacility" onclick="showModalDeleteControl('a','b','c')">
-                        Danh sách các dịch vụ miễn phí đi kèm
+                    <button type="button" class="btn btn-primary"
+                            th:attr="onclick=|showModalDetailAttach('${contract.getId()}')|">
+                        Danh sách các dịch vụ đi kèm
                     </button>
                 </td>
 
@@ -56,6 +56,11 @@
 
     </div>
 
+    <a class="btn btn-primary" th:href="@{/contract/(page=${contractList.number - 1})}"
+       th:if="${contractList.hasPrevious()}"> Previous</a>
+    <span th:text="${contractList.number +1}"></span>/<span th:text="${contractList.totalPages}"></span>
+    <a class="btn btn-primary" th:href="@{/contract/(page=${contractList.number + 1})}"
+       th:if="${contractList.hasNext()}"> Next</a>
 </div>
 
 
@@ -69,9 +74,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body container-fluid">
-
                 <div class="container  mt-2 p-2 mb-2" style="border: 1px solid grey; border-radius: 15px">
-                    <form class="row" action="" method="post">
+                    <form class="row" action="/contract/add" method="post">
                         <div class="col-md-12">
                             <label for="startday" class="form-label">Ngày bắt đầu </label>
                             <input type="date" class="form-control" id="startday" name="startday">
@@ -172,23 +176,21 @@
 
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditLable">DANH SÁCH DỊCH VỤ MIỄN PHÍ ĐI KÈM</h5>
+                <h5 class="modal-title" id="modalEditLable">DANH SÁCH DỊCH VỤ ĐI KÈM</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body container-fluid">
                 <table class="table table-striped">
                     <tr>
+                        <th>#</th>
                         <th>Tên dịch vụ đi kèm</th>
                         <th>Đơn vị</th>
                         <th>Giá tiền</th>
                         <th>Số lượng</th>
                     </tr>
-                    <tr>
-                        <td>Karaoke</td>
-                        <td>Giờ</td>
-                        <td>100000</td>
-                        <td>1</td>
-                    </tr>
+                    <tbody id="attachBody">
+
+                    </tbody>
 
                 </table>
 
@@ -211,9 +213,8 @@
                         <tr>
                             <th>Tên dịch vụ đi kèm</th>
                             <th>Đơn vị</th>
-                            <th>Giá tiền</th>
                             <th>Số lượng</th>
-
+                            <th>Giá tiền</th>
                         </tr>
                         <tr>
                             <td><input type="checkbox"> Karaoke</td>
@@ -244,7 +245,8 @@
         </div>
     </div>
 </div>
-
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 <script>
     function displayAttachFacility() {
         document.getElementById("tableFacilityContract").style.display = 'block'
@@ -258,9 +260,42 @@
 
     }
 
+    function showModalDetailAttach(a) {
+        $('#attachFacility').modal('show')
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/contract-rest?idc=" + a,
+            success: function (resultSuccess) {
+                let total = 0;
+                console.log(resultSuccess)
+                let htmlStr = '';
+                if (resultSuccess[0].name != null)
+                    for (let i = 0; i < resultSuccess.length; i++) {
+                        total += resultSuccess[i].price * resultSuccess[i].quantity
+                        htmlStr += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${resultSuccess[i].name}</td>
+                        <td>${resultSuccess[i].unit}</td>
+                         <td>${resultSuccess[i].quantity}</td>
+                         <td>${resultSuccess[i].price}</td></tr>`
+                    }
+                htmlStr += `<tr><td colspan="4">Tổng</td><td>${total}</td> </tr>`
+                $('#attachBody').html(htmlStr)
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+    }
+
+
 </script>
 
-<script src="/js/jquery-3.6.0.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>
