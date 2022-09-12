@@ -11,17 +11,17 @@
 
 <div class="container w-50 mt-4 p-2 mb-4" style="border: 1px solid grey; border-radius: 15px">
     <h3 class="text-center">SỬA THÔNG TIN KHÁCH HÀNG</h3>
-    <form class="row g-3" action="/customer/edit" method="post" th:object="${customer}">
+    <form class="row g-3" action="/customer/edit" method="post" th:object="${customerDto}">
         <input  hidden type="text" th:field="*{idCustomer}">
         <div class="col-md-12">
             <label for="name" class="form-label">Họ tên</label>
             <input type="text" class="form-control" id="name" name="name" th:field="*{name}">
-
+            <div class="text-danger" th:errors="*{name}"></div>
         </div>
         <div class="col-md-12">
             <label for="birthday" class="form-label">Ngày sinh </label>
             <input type="date" class="form-control" id="birthday" name="birthday" th:field="*{dayOfBirth}">
-
+            <div class="text-danger" th:errors="*{dayOfBirth}"></div>
         </div>
         <div class="col-md-12">
             <label  class="form-label me-4">Giới tính </label>
@@ -29,21 +29,22 @@
                 <option value="1">Nam</option>
                 <option value="2">Nữ</option>
             </select>
+            <div class="text-danger" th:errors="*{gender}"></div>
         </div>
         <div class="col-md-12">
             <label for="id_card" class="form-label">Số CMND</label>
             <input type="text" class="form-control" id="id_card"  name="id_card"  th:field="*{personalCode}" >
-
+            <div class="text-danger" th:errors="*{personalCode}"></div>
         </div>
         <div class="col-md-12">
             <label for="phone" class="form-label">Số Điện Thoại</label>
             <input type="text" class="form-control" id="phone" name="phone" th:field="*{phoneNumber}" >
-
+            <div class="text-danger" th:errors="*{phoneNumber}"></div>
         </div>
         <div class="col-md-12 " id="s1" >
             <label for="email" class="form-label">Email </label>
             <input type="text" class="form-control" id="email" name="email" th:field="*{email}">
-
+            <div class="text-danger" th:errors="*{email}"></div>
         </div>
 
         <div class="col-md-12">
@@ -52,11 +53,13 @@
 <!--                <option value="None" disabled selected>Chọn loại khách</option>-->
                 <option th:each="guestType : ${guestTypeList}" th:value="${guestType.getIdGuestType()}" th:text="${guestType.getGuestTypeName()}"> </option>
             </select>
+            <div class="text-danger" th:errors="*{guestType}"></div>
         </div>
 
         <div class="col-md-12 " id="s2" >
             <label for="address" class="form-label">Địa chỉ </label>
             <input type="text" class="form-control" id="address" name="address" th:field="*{address}">
+            <div class="text-danger" th:errors="*{address}"></div>
         </div>
 
 

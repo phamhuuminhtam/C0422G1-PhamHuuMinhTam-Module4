@@ -10,8 +10,8 @@
 <nav th:replace="~{/layout::navbar(mapCus='/customer/')}"></nav>
 
 <div class="container-fluid">
-<!--    <input value="${message}" id="message" hidden>-->
-    <input  id="message" hidden>
+    <input th:value="${message}" id="message" hidden>
+
     <h2 CLASS="text-center">DANH SÁCH KHÁCH HÀNG</h2>
     <div class="row main mt-2 ">
         <table class="table table-striped" id="tableCustomer">
@@ -115,17 +115,14 @@
     }
 </script>
 
-
 <script src="/js/jquery-3.6.0.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-
 
 <script>
 
     window.onload = function () {
-        var message = document.getElementById("message").value;
-        document.getElementById("modalAlertMes").innerText = message;
-        if (message != "" && message != null) {
+        if ($('#message').val() != null && $('#message').val() != "") {
+            $("#modalAlertMes").html($('#message').val());
             $(document).ready(function () {
                     $('#modalAlert').modal("show")
                 }

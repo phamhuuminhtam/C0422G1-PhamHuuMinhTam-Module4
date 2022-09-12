@@ -10,8 +10,9 @@
 <nav th:replace="~{/layout::navbar}"></nav>
 
 <div class="container">
-    <a  href="/contract/add" style="position: fixed;right: 0" type="button" class="btn btn-success mt-1" data-bs-toggle="modal"
-            data-bs-target="#addContact" onclick="">
+    <a href="/contract/add" style="position: fixed;right: 0" type="button" class="btn btn-success mt-1"
+       data-bs-toggle="modal"
+       data-bs-target="#addContact" onclick="">
         THÊM MỚI HỢP ĐỒNG
     </a>
     <h2 CLASS="text-center">DANH SÁCH HỢP ĐỒNG</h2>
@@ -42,7 +43,8 @@
                 <td class="d-flex justify-content-center">
 
                     <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal"
-                            data-bs-target="#addContactDetail" onclick="">
+                            data-bs-target="#addContactDetail"
+                            th:attr="onclick=|showModalAddAttachFacility('${contract.getId()}')|">
                         +
                     </button>
                     <button type="button" class="btn btn-primary"
@@ -293,6 +295,36 @@
         });
     }
 
+    function showModalAddAttachFacility(a) {
+        $('#addContactDetail').modal('show');
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET",
+            url: "http://localhost:8080/contract-rest",
+            success: function (resultSuccess) {
+
+                let htmlStr = '';
+                for (let i = 0; i < resultSuccess.length; i++) {
+
+                    htmlStr += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${resultSuccess[i].name}</td>
+                        <td>${resultSuccess[i].unit}</td>
+                         <td>${resultSuccess[i].quantity}</td>
+                         <td>${resultSuccess[i].price}</td></tr>`
+                }
+                htmlStr += `<tr><td colspan="4">Tổng</td><td>${total}</td> </tr>`
+                $('#attachBody').html(htmlStr)
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+    }
 
 </script>
 

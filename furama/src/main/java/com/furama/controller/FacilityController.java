@@ -1,17 +1,21 @@
 package com.furama.controller;
 
+import com.furama.dto.FacilityDto;
 import com.furama.model.facility.Facility;
 import com.furama.service.facility.FacilityService;
 import com.furama.service.rental_type.RentalTypeService;
 import com.furama.service.service_type.ServiceTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -50,19 +54,28 @@ public class FacilityController {
             redirectAttributes.addFlashAttribute("keyWord", keyWord);
             return "redirect:/facility/";
         }
-        model.addAttribute("facility", new Facility());
+        model.addAttribute("facilityDto", new Facility());
         model.addAttribute("serviceTypeList", serviceTypeService.findAll());
         model.addAttribute("rentalTypeList", rentalTypeService.findAll());
         return "/facility/add";
     }
 
     @PostMapping("addToDb")
-    public String addNewFacility(@ModelAttribute Facility facility,@RequestParam Optional<String> keyWord, RedirectAttributes redirectAttributes) {
+    public String addNewFacility(@ModelAttribute @Valid FacilityDto facilityDto, BindingResult bindingResult, @RequestParam Optional<String> keyWord, RedirectAttributes redirectAttributes, Model model) {
         if (keyWord.isPresent()) {
             redirectAttributes.addFlashAttribute("keyWord", keyWord);
             return "redirect:/facility/";
         }
+        new FacilityDto().validate(facilityDto,bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("serviceTypeList", serviceTypeService.findAll());
+            model.addAttribute("rentalTypeList", rentalTypeService.findAll());
+            return "/facility/add";
+        }
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facilityDto,facility);
         facilityService.save(facility);
+        redirectAttributes.addFlashAttribute("message", "Thêm mới thành công");
         return "redirect:/facility/";
     }
 
@@ -72,25 +85,35 @@ public class FacilityController {
             redirectAttributes.addFlashAttribute("keyWord", keyWord);
             return "redirect:/facility/";
         }
-        model.addAttribute("facility", facilityService.searchFacility(id.get()));
+        model.addAttribute("facilityDto", facilityService.searchFacility(id.get()));
         model.addAttribute("serviceTypeList", serviceTypeService.findAll());
         model.addAttribute("rentalTypeList", rentalTypeService.findAll());
         return "/facility/edit";
     }
 
     @PostMapping("/edit")
-    public String editFacility(@ModelAttribute Facility facility,@RequestParam Optional<String> keyWord, RedirectAttributes redirectAttributes) {
+    public String editFacility(@ModelAttribute @Valid FacilityDto facilityDto, BindingResult bindingResult,@RequestParam Optional<String> keyWord, RedirectAttributes redirectAttributes, Model model) {
         if (keyWord.isPresent()) {
             redirectAttributes.addFlashAttribute("keyWord", keyWord);
             return "redirect:/facility/";
         }
+        new FacilityDto().validate(facilityDto,bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("serviceTypeList", serviceTypeService.findAll());
+            model.addAttribute("rentalTypeList", rentalTypeService.findAll());
+            return "/facility/edit";
+        }
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facilityDto,facility);
         facilityService.save(facility);
+        redirectAttributes.addFlashAttribute("message", "Sửa thông tin thành công");
         return "redirect:/facility/";
     }
 
     @PostMapping("/delete")
-    public String deleteFacility(@RequestParam Integer id){
+    public String deleteFacility(@RequestParam Integer id, RedirectAttributes redirectAttributes){
         facilityService.delete(id);
+        redirectAttributes.addFlashAttribute("message", "Xóa thành công");
         return "redirect:/facility/";
     }
 }

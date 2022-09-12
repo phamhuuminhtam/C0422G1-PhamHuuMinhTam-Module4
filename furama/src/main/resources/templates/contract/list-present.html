@@ -179,7 +179,7 @@
             success: function (resultSuccess) {
                 console.log(resultSuccess)
                 let listFacility = resultSuccess
-                let htmlStr = "<select id='facilityChange'>";
+                let htmlStr = "<select id='facilityChange'  class=\"form-select\">";
                 for (let i = 0; i < listFacility.length; i++) {
                     if (a == listFacility[i].serviceName)
 
@@ -203,7 +203,6 @@
         $.ajax({
             header: {
                 'Accept': 'application/json',
-
             },
             contentType: "application/json; charset=utf-8",
             type: "GET",

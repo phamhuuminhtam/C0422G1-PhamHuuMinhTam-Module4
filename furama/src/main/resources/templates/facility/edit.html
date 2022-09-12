@@ -10,7 +10,7 @@
 <nav th:replace="~{/layout::navbar}"></nav>
 <div class="container w-50 mt-2 p-2" style="border: 1px solid grey; border-radius: 15px">
     <h3 class="text-center">CHỈNH SỬA THÔNG TIN DỊCH VỤ</h3>
-    <form class="row g-3" action="/facility/edit" method="post" th:object="${facility}">
+    <form class="row g-3" action="/facility/edit" method="post" th:object="${facilityDto}">
         <div class="col-md-12">
             <label class="form-label">Loại dịch vụ</label>
             <select name="serviceType" class="form-select" onchange="showServiceInput(this)" id="serviceSelect"
@@ -19,51 +19,56 @@
                 <option th:each="service : ${serviceTypeList}" th:text="${service.serviceTypeName}"
                         th:value="${service.idServiceType}"></option>
             </select>
+            <div class="text-danger" th:errors="*{serviceType}"></div>
         </div>
         <input  hidden type="text" th:field="*{idFacility}">
         <div class="col-md-12">
             <label for="name" class="form-label">Tên dịch vụ</label>
             <input type="text" class="form-control" id="name" name="name"  th:field="*{serviceName}" >
+            <div class="text-danger" th:errors="*{serviceName}"></div>
         </div>
         <div class="col-md-12">
             <label for="area" class="form-label">Diện tích sử dụng</label>
             <input type="text" class="form-control" id="area" name="area" th:field="*{squareUse}" >
-
+            <div class="text-danger" th:errors="*{squareUse}"></div>
         </div>
         <div class="col-md-12">
             <label for="cost" class="form-label">Chi phí thuê</label>
             <input type="text" class="form-control" id="cost" name="cost" th:field="*{cost}" >
-
+            <div class="text-danger" th:errors="*{cost}"></div>
         </div>
         <div class="col-md-12">
             <label for="max_people" class="form-label">Số lượng người tối đa </label>
             <input type="text" class="form-control" id="max_people" name="max_people" th:field="*{numberOfPeople}"
                    required>
-
+            <div class="text-danger" th:errors="*{numberOfPeople}"></div>
         </div>
         <div class="col-md-12">
             <label class="form-label">Kiểu thuê</label>
             <select name="rentalType" class="form-select" th:field="*{rentalType}" >
 <!--                <option value="None" disabled >Chọn kiểu thuê</option>-->
                 <option th:each="rental:${rentalTypeList}" th:text="${rental.rentalTypeName}" th:value="${rental.idRentalType}"></option>
-
             </select>
+            <div class="text-danger" th:errors="*{rentalType}"></div>
         </div>
         <div class="col-md-12 " id="s1" style="display: none">
             <label for="standard_room" class="form-label">Tiêu chuẩn phòng </label>
             <input type="text" class="form-control" id="standard_room" name="standard_room"
                    th:field="*{roomStandard}">
+            <div class="text-danger" th:errors="*{roomStandard}"></div>
         </div>
 
         <div class="col-md-12 " id="s2" style="display: none">
             <label for="description_other_convenience" class="form-label">Mô tả tiện nghi khác</label>
             <input type="text" class="form-control" id="description_other_convenience"
                    name="description_other_convenience" th:field="*{descriptionOtherConvenience}">
+            <div class="text-danger" th:errors="*{descriptionOtherConvenience}"></div>
         </div>
 
         <div class="col-md-12 " id="s3" style="display: none">
             <label for="pool_area" class="form-label">Diện tích hồ bơi </label>
             <input type="text" class="form-control" id="pool_area" name="pool_area" th:field="*{poolArea}">
+            <div class="text-danger" th:errors="*{poolArea}"></div>
 
         </div>
 
@@ -71,13 +76,14 @@
             <label for="number_of_floors" class="form-label">Số tầng </label>
             <input type="text" class="form-control" id="number_of_floors" name="number_of_floors"
                    th:field="*{numberOfFloors}">
-
+            <div class="text-danger" th:errors="*{numberOfFloors}"></div>
         </div>
 
         <div class="col-md-12 " id="s5" style="display: none">
             <label for="facility_free" class="form-label">Dịch vụ miễn phí đi kèm </label>
             <input type="text" class="form-control" id="facility_free" name="facility_free"
                    th:field="*{freeServiceAdd}">
+            <div class="text-danger" th:errors="*{freeServiceAdd}"></div>
         </div>
 
         <div class="col-12 ">
