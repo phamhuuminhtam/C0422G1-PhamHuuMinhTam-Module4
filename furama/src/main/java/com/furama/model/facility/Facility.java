@@ -43,14 +43,14 @@ public class Facility {
     private String freeServiceAdd;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "servicetype")
     @JoinColumn(name="ma_loai_dich_vu", referencedColumnName="ma_loai_dich_vu")
     private ServiceType serviceType;
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "rentaltype")
     @JoinColumn(name="ma_kieu_thue", referencedColumnName="ma_kieu_thue")
     private RentalType rentalType;
-    @JsonBackReference
+    @JsonBackReference(value = "contractftype")
     @OneToMany(mappedBy = "facility")
     private List<Contract> contractList;
 }

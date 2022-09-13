@@ -215,34 +215,19 @@
                         <tr>
                             <th>Tên dịch vụ đi kèm</th>
                             <th>Đơn vị</th>
-                            <th>Số lượng</th>
                             <th>Giá tiền</th>
+                            <th>Số lượng</th>
                         </tr>
-                        <tr>
-                            <td><input type="checkbox"> Karaoke</td>
-                            <td>Giờ</td>
-                            <td>100000</td>
-                            <td><input style="width: 70px" type="number"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"> Thuê xe máy</td>
-                            <td>Giờ</td>
-                            <td>100000</td>
-                            <td><input style="width: 70px" type="number"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"> Thuê xe đạp</td>
-                            <td>Giờ</td>
-                            <td>100000</td>
-                            <td><input style="width: 70px" type="number"></td>
-                        </tr>
+                        <tbody id="addAttachFacility">
+
+                        </tbody>
 
                     </table>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
-                <button type="button" class="btn btn-primary">Thêm</button>
+                <button type="button" class="btn btn-primary" onclick="getAttachFacilityObject()">Thêm</button>
             </div>
         </div>
     </div>
@@ -296,6 +281,7 @@
     }
 
     function showModalAddAttachFacility(a) {
+        let val = a;
         $('#addContactDetail').modal('show');
         $.ajax({
             header: {
@@ -303,27 +289,85 @@
                 'Content-Type': 'application/json'
             },
             type: "GET",
-            url: "http://localhost:8080/contract-rest",
+            url: "http://localhost:8080/AttachFacility",
             success: function (resultSuccess) {
 
+                console.log(resultSuccess)
                 let htmlStr = '';
                 for (let i = 0; i < resultSuccess.length; i++) {
-
-                    htmlStr += `<tr>
-                        <td>${i + 1}</td>
-                        <td>${resultSuccess[i].name}</td>
+                    htmlStr += `
+                  <tr>
+                        <td><input type="checkbox" value="${resultSuccess[i].idAttachFacility}"> ${resultSuccess[i].nameAttachFacility}</td>
                         <td>${resultSuccess[i].unit}</td>
-                         <td>${resultSuccess[i].quantity}</td>
-                         <td>${resultSuccess[i].price}</td></tr>`
+                        <td>${resultSuccess[i].price}</td>
+                        <td>
+                        <input type="number" class="${resultSuccess[i].idAttachFacility}" >
+                        <input type="number" class="${resultSuccess[i].idAttachFacility}" value="` + val + `" hidden>
+                        <input type="number" class="${resultSuccess[i].idAttachFacility}" value="${resultSuccess[i].idAttachFacility}" hidden>
+
+                        </td>
+                        </tr>`
                 }
-                htmlStr += `<tr><td colspan="4">Tổng</td><td>${total}</td> </tr>`
-                $('#attachBody').html(htmlStr)
+
+                $('#addAttachFacility').html(htmlStr)
             }
             ,
             error: function (resultError) {
                 alert('error');
             }
         });
+    }
+
+    function getAttachFacilityObject() {
+        let checkArr = []
+        let object = [];
+        let quantity
+        let contractId
+        let attachFacilityId
+        $('#addAttachFacility input:checked').each(function () {
+            checkArr.push(this.value)
+        })
+        for (var i = 0; i < checkArr.length; i++) {
+
+            let valArr = $('.'+checkArr[i]).map(function () {
+               return this.value
+            }).get()
+            for (var j = 0; j < valArr.length; j++) {
+                quantity = valArr[0]
+                contractId = valArr[1]
+                attachFacilityId = valArr[2]
+            }
+
+            let a = {
+                idContractDetail: null,
+                quantity: quantity,
+                contract: {
+                    idContract: contractId
+                },
+                attachFacility: {
+                    idAttachFacility: attachFacilityId
+                }
+            }
+            object.push(a)
+        }
+        console.log(object)
+        $.ajax({
+            header: {
+                'Accept': 'application/json',
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            data: JSON.stringify(object),
+            url: "http://localhost:8080/addCD",
+            success: function (resultSuccess) {
+               location.reload()
+            }
+            ,
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+
     }
 
 </script>

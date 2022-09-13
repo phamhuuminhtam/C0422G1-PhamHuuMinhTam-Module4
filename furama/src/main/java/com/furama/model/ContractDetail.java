@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name="hop_dong_chi_tiet")
-public class ContractDetail {
+public class  ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ma_hop_dong_chi_tiet")

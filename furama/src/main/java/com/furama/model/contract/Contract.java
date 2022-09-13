@@ -1,5 +1,6 @@
 package com.furama.model.contract;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.furama.model.ContractDetail;
 import com.furama.model.customer.Customer;
 import com.furama.model.employee.Employee;
@@ -47,6 +48,7 @@ public class Contract {
     private Facility facility;
 
     @OneToMany(mappedBy = "contract")
+    @JsonBackReference(value = "contract")
     private List<ContractDetail> contractDetailList;
 
 }

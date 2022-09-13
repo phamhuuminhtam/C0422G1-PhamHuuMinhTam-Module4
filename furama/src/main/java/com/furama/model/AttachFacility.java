@@ -1,6 +1,7 @@
 package com.furama.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,11 +26,12 @@ public class AttachFacility {
     @Column(name="gia")
     private Double price;
     @Column(name="don_vi")
-    private Integer unit;
+    private String unit;
     @Column(name = "trang_thai")
     private String status;
 
     @OneToMany(mappedBy = "attachFacility")
+    @JsonBackReference(value = "contractDetail")
     private List<ContractDetail> contractDetailList;
 
 
