@@ -2,66 +2,112 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contract</title>
+    <title>Add New Customer</title>
     <th:block th:replace="~{/layout::cssbackground}"></th:block>
 </head>
 <body>
 <div th:replace="~{/layout::header}"></div>
 <nav th:replace="~{/layout::navbar}"></nav>
 
-<div class="container">
-    <a href="/contract/add" style="position: fixed;right: 0" type="button" class="btn btn-success mt-1">
-        THÊM MỚI HỢP ĐỒNG
-    </a>
-    <h2 CLASS="text-center">DANH SÁCH HỢP ĐỒNG</h2>
-    <div class="row main mt-2 ">
-        <table class="table table-striped">
-            <tr>
 
-                <th>STT</th>
-                <th>Dịch vụ</th>
-                <th>Khách hàng</th>
-                <th>Ngày bắt đầu</th>
-                <th>Ngày kết thúc</th>
-                <th>Tiền đặt cọc</th>
-                <th>Tổng tiền</th>
-                <th>Các dịch vụ đi kèm</th>
+<div class="modal-content">
 
-            </tr>
-            <tr th:each="contractShow,loop: ${contractList}">
-                <td th:text="${loop.count + size* contractList.number}"></td>
-                <td th:text="${contractShow.getFacility()}"></td>
-                <td th:text="${contractShow.getCustomer()}"></td>
-                <td th:text="${contractShow.getStart()}"></td>
-                <td th:text="${contractShow.getEnds()}"></td>
-                <td th:text="${#numbers.formatDecimal(contractShow.getDeposit(), 0, 'COMMA', 0, 'POINT') }"></td>
-                <td th:text="${#numbers.formatDecimal(contractShow.getTotal(), 0, 'COMMA', 0, 'POINT') }"></td>
-                <td class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal"
-                            data-bs-target="#addContactDetail"
-                            th:attr="onclick=|showModalAddAttachFacility('${contractShow.getId()}')|">
+        <h5 class="modal-title text-center" id="exampleModalLabel">TẠO HỢP ĐỒNG</h5>
+
+
+    <div class="modal-body container-fluid">
+        <div class="container  mt-2 p-2 mb-2" style="border: 1px solid grey; border-radius: 15px">
+
+            <form class="row" action="/contract/add" method="post" th:object="${contract}">
+                <div class="col-md-12">
+                    <label class="form-label">Ngày bắt đầu </label>
+                    <input type="date" class="form-control" th:field="*{startDate}">
+                </div>
+                <div class="col-md-12">
+                    <label for="endday" class="form-label">Ngày kết thúc </label>
+                    <input type="date" class="form-control" id="endday" name="endday" th:field="*{endDate}">
+                </div>
+
+                <div class="col-md-12">
+                    <label for="deposit" class="form-label">Tiền đặt cọc</label>
+                    <input type="number" class="form-control" id="deposit" name="deposit" th:field="*{deposit}">
+                </div>
+                <div class="col-md-12">
+                    <label for="total" class="form-label">Tổng tiền</label>
+                    <input type="number" readonly class="form-control " id="total" name="total">
+                </div>
+
+                <div class="col-md-12">
+                    <label class="form-label">Khách hàng</label>
+                    <select name="customerName" class="form-select" th:field="*{customer}">
+                        <option th:each="customer: ${customerList}" th:text="${customer.name}"
+                                th:value="${customer.idCustomer}"></option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Dịch vụ</label>
+                    <select name="serviceName" class="form-select" th:field="*{facility}">
+                        <option th:each="facility: ${facilityList}" th:text="${facility.serviceName}"
+                                th:value="${facility.idFacility}"></option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Nhân viên</label>
+                    <select name="serviceName" class="form-select" th:field="*{employee}">
+                        <option th:each="employee: ${employeeList}" th:text="${employee.name}"
+                                th:value="${employee.idEmployee}"></option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label">Dịch vụ đi kèm</label>
+                    <button type="button" class="btn btn-primary mt-2 mb-2" onclick="showModalAddAttachFacility()">
                         +
                     </button>
-                    <button type="button" class="btn btn-primary"
-                            th:attr="onclick=|showModalDetailAttach('${contractShow.getId()}')|">
-                        Danh sách các dịch vụ đi kèm
-                    </button>
-                </td>
 
-            </tr>
-        </table>
+<!--                    <table class="table table-striped" id="tableFacilityContract" style="display: none;">-->
+<!--                        <tr>-->
+<!--                            <th>Tên dịch vụ đi kèm</th>-->
+<!--                            <th>Đơn vị</th>-->
+<!--                            <th>Giá tiền</th>-->
+<!--                            <th>Số lượng</th>-->
+<!--                            <th>-->
+<!--                                <button style="display: none" type="button" class="btn btn-danger"-->
+<!--                                        data-bs-toggle="modal" data-bs-target="#" id="buttonHide"-->
+<!--                                        onclick="hideAttachFacility()">-->
+<!--                                    x-->
+<!--                                </button>-->
+<!--                            </th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input type="checkbox"> Karaoke</td>-->
+<!--                            <td>Giờ</td>-->
+<!--                            <td>100000</td>-->
+<!--                            <td><input style="width: 70px" type="number"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input type="checkbox"> Thuê xe máy</td>-->
+<!--                            <td>Giờ</td>-->
+<!--                            <td>100000</td>-->
+<!--                            <td><input style="width: 70px" type="number"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input type="checkbox"> Thuê xe đạp</td>-->
+<!--                            <td>Giờ</td>-->
+<!--                            <td>100000</td>-->
+<!--                            <td><input style="width: 70px" type="number"></td>-->
+<!--                        </tr>-->
 
+<!--                    </table>-->
+
+                </div>
+                <div class="col-12  mt-2 d-flex justify-content-end">
+                    <button type="button" class="btn btn-secondary me-3" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-warning">Tạo hợp đồng</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <a class="btn btn-primary"  th:if="${contractList.hasPrevious()}" th:href="@{/contract/(page=${contractList.number - 1})}"
-      > Previous</a>
-    <span th:text="${contractList.number +1}"></span>/<span th:text="${contractList.totalPages}"></span>
-    <a class="btn btn-primary"  th:if="${contractList.hasNext()}" th:href="@{/contract/(page=${contractList.number + 1})}"
-       > Next</a>
 </div>
-
-
-<!-- Modal-->
 
 
 <div class="modal fade" id="attachFacility" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -171,8 +217,8 @@
         });
     }
 
-    function showModalAddAttachFacility(a) {
-        let val = a;
+    function showModalAddAttachFacility() {
+
         $('#addContactDetail').modal('show');
         $.ajax({
             header: {
@@ -193,9 +239,7 @@
                         <td>${resultSuccess[i].price}</td>
                         <td>
                         <input type="number" class="${resultSuccess[i].idAttachFacility}" >
-                        <input type="number" class="${resultSuccess[i].idAttachFacility}" value="` + val + `" hidden>
                         <input type="number" class="${resultSuccess[i].idAttachFacility}" value="${resultSuccess[i].idAttachFacility}" hidden>
-
                         </td>
                         </tr>`
                 }
@@ -221,7 +265,7 @@
         for (var i = 0; i < checkArr.length; i++) {
 
             let valArr = $('.'+checkArr[i]).map(function () {
-               return this.value
+                return this.value
             }).get()
             for (var j = 0; j < valArr.length; j++) {
                 quantity = valArr[0]
@@ -251,7 +295,7 @@
             data: JSON.stringify(object),
             url: "http://localhost:8080/contractDetail-rest/addCD",
             success: function (resultSuccess) {
-               location.reload()
+                location.reload()
             }
             ,
             error: function (resultError) {
